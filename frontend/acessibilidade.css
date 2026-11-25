@@ -1,0 +1,860 @@
+/* ==========================================================
+   MOVETECH — ACESSIBILIDADE GLOBAL
+   ========================================================== */
+
+
+/* ==========================================================
+   1. ELEMENTOS EXCLUSIVOS PARA LEITOR DE TELA
+   ========================================================== */
+
+.sr-only {
+    position: absolute !important;
+
+    width: 1px !important;
+    height: 1px !important;
+
+    padding: 0 !important;
+    margin: -1px !important;
+
+    overflow: hidden !important;
+
+    clip: rect(0, 0, 0, 0) !important;
+    clip-path: inset(50%) !important;
+
+    white-space: nowrap !important;
+
+    border: 0 !important;
+}
+
+
+/* ==========================================================
+   2. LINK "PULAR PARA O CONTEÚDO"
+   ========================================================== */
+
+.skip-link {
+    position: fixed !important;
+
+    top: -100px;
+    left: 20px;
+
+    z-index: 1000000 !important;
+
+    padding: 12px 18px !important;
+
+    background: #ffffff !important;
+    color: #000000 !important;
+
+    border: 2px solid #000000 !important;
+    border-radius: 8px !important;
+
+    font-family: inherit !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+
+    line-height: 1.2 !important;
+
+    text-decoration: none !important;
+
+    transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+    top: 20px;
+}
+
+
+/* ==========================================================
+   3. BARRA DE ACESSIBILIDADE
+   TAMANHO FIXO EM TODAS AS TELAS
+   ========================================================== */
+
+.acessibilidade-barra {
+    position: fixed !important;
+
+    right: 24px !important;
+    bottom: 24px !important;
+
+    width: 330px !important;
+    min-width: 330px !important;
+    max-width: 330px !important;
+
+    height: 60px !important;
+    min-height: 60px !important;
+    max-height: 60px !important;
+
+    box-sizing: border-box !important;
+
+    z-index: 999999 !important;
+
+    display: flex !important;
+    flex-direction: row !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    gap: 8px !important;
+
+    padding: 8px !important;
+    margin: 0 !important;
+
+    background: rgba(5, 15, 9, 0.97) !important;
+
+    border: 1px solid rgba(63, 255, 111, 0.28) !important;
+    border-radius: 14px !important;
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.35) !important;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif !important;
+
+    font-size: 16px !important;
+    line-height: 1 !important;
+
+    overflow: hidden !important;
+
+    isolation: isolate;
+}
+
+
+/* ==========================================================
+   4. TÍTULO DA BARRA
+   ========================================================== */
+
+.acessibilidade-titulo {
+    width: 118px !important;
+    min-width: 118px !important;
+    max-width: 118px !important;
+
+    height: 42px !important;
+    min-height: 42px !important;
+    max-height: 42px !important;
+
+    box-sizing: border-box !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+    justify-content: flex-start !important;
+
+    flex: 0 0 118px !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    color: #d8e0da !important;
+
+    font-family: inherit !important;
+
+    font-size: 12px !important;
+    font-weight: 700 !important;
+
+    line-height: 1 !important;
+
+    white-space: nowrap !important;
+}
+
+
+/* ==========================================================
+   5. BOTÕES DA BARRA
+   ========================================================== */
+
+.acessibilidade-botao {
+    width: 42px !important;
+    min-width: 42px !important;
+    max-width: 42px !important;
+
+    height: 42px !important;
+    min-height: 42px !important;
+    max-height: 42px !important;
+
+    box-sizing: border-box !important;
+
+    display: inline-flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    flex: 0 0 42px !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    background: #09110c !important;
+    color: #ffffff !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 9px !important;
+
+    font-family: inherit !important;
+
+    font-size: 14px !important;
+    font-weight: 800 !important;
+
+    line-height: 1 !important;
+
+    text-align: center !important;
+
+    cursor: pointer !important;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease !important;
+}
+
+
+/* HOVER */
+
+.acessibilidade-botao:hover {
+    background: #102117 !important;
+
+    color: #5cff78 !important;
+
+    border-color: rgba(92, 255, 120, 0.5) !important;
+}
+
+
+/* CLIQUE */
+
+.acessibilidade-botao:active {
+    transform: translateY(1px);
+}
+
+
+/* FOCO */
+
+.acessibilidade-botao:focus-visible {
+    outline: 3px solid #5cff78 !important;
+    outline-offset: 2px !important;
+}
+
+
+/* DESABILITADO */
+
+.acessibilidade-botao:disabled {
+    opacity: 0.45 !important;
+
+    cursor: not-allowed !important;
+
+    transform: none !important;
+}
+
+
+/* CONTRASTE ATIVO */
+
+.acessibilidade-botao[aria-pressed="true"] {
+    background: #ffff00 !important;
+
+    color: #000000 !important;
+
+    border-color: #ffff00 !important;
+}
+
+
+/* ==========================================================
+   6. FOCO GLOBAL
+   ========================================================== */
+
+body *:focus-visible {
+    outline: 3px solid #5cff78;
+    outline-offset: 3px;
+}
+
+
+/* ==========================================================
+   7. ALTO CONTRASTE — BODY
+   ========================================================== */
+
+body.alto-contraste {
+    background: #000000 !important;
+
+    color: #ffffff !important;
+}
+
+
+/* ==========================================================
+   8. ALTO CONTRASTE — ESTRUTURA PRINCIPAL
+   ========================================================== */
+
+body.alto-contraste .app-layout,
+body.alto-contraste .main-area,
+body.alto-contraste .content,
+body.alto-contraste main {
+    background: #000000 !important;
+
+    color: #ffffff !important;
+}
+
+
+/* ==========================================================
+   9. ALTO CONTRASTE — SIDEBAR
+   ========================================================== */
+
+body.alto-contraste .sidebar {
+    background: #000000 !important;
+
+    color: #ffffff !important;
+
+    border-color: #ffff00 !important;
+}
+
+
+body.alto-contraste .brand {
+    border-color: #ffff00 !important;
+}
+
+
+body.alto-contraste .brand strong {
+    color: #ffffff !important;
+}
+
+
+body.alto-contraste .brand strong span {
+    color: #ffff00 !important;
+}
+
+
+body.alto-contraste .brand small {
+    color: #ffffff !important;
+}
+
+
+/* ==========================================================
+   10. ALTO CONTRASTE — MENU
+   ========================================================== */
+
+body.alto-contraste .menu a {
+    background: #000000 !important;
+
+    color: #ffffff !important;
+
+    border-color: transparent !important;
+}
+
+
+body.alto-contraste .menu a:hover {
+    background: #111111 !important;
+
+    color: #ffff00 !important;
+
+    border-color: #ffff00 !important;
+}
+
+
+body.alto-contraste .menu a.active {
+    background: #111111 !important;
+
+    color: #ffff00 !important;
+
+    border-color: #ffff00 !important;
+}
+
+
+/* ==========================================================
+   11. ALTO CONTRASTE — USUÁRIO
+   ========================================================== */
+
+body.alto-contraste .sidebar-footer {
+    border-color: #ffff00 !important;
+}
+
+
+body.alto-contraste .usuario,
+body.alto-contraste .usuario strong,
+body.alto-contraste .usuario small {
+    color: #ffffff !important;
+}
+
+
+/* ==========================================================
+   12. ALTO CONTRASTE — TOPBAR
+   ========================================================== */
+
+body.alto-contraste .topbar {
+    background: #000000 !important;
+
+    color: #ffffff !important;
+
+    border-color: #ffff00 !important;
+}
+
+
+body.alto-contraste .page-kicker {
+    color: #ffff00 !important;
+}
+
+
+body.alto-contraste .topbar h1 {
+    color: #ffffff !important;
+}
+
+
+/* ==========================================================
+   13. ALTO CONTRASTE — HERO / APRESENTAÇÃO
+   ========================================================== */
+
+body.alto-contraste .welcome,
+body.alto-contraste .clientes-header,
+body.alto-contraste .clients-hero,
+body.alto-contraste .products-hero,
+body.alto-contraste .sales-hero,
+body.alto-contraste .reports-hero {
+    background: #000000 !important;
+
+    color: #ffffff !important;
+
+    border: 1px solid #ffff00 !important;
+
+    box-shadow: none !important;
+}
+
+
+body.alto-contraste .welcome::before,
+body.alto-contraste .welcome::after,
+body.alto-contraste .hero-decoration {
+    opacity: 0 !important;
+}
+
+
+body.alto-contraste .welcome-kicker,
+body.alto-contraste .client-kicker,
+body.alto-contraste .product-kicker,
+body.alto-contraste .report-kicker {
+    color: #ffff00 !important;
+}
+
+
+body.alto-contraste .welcome h2,
+body.alto-contraste .clientes-header h2,
+body.alto-contraste .clients-hero h2,
+body.alto-contraste .products-hero h2,
+body.alto-contraste .sales-hero h2,
+body.alto-contraste .reports-hero h2 {
+    color: #ffffff !important;
+}
+
+
+body.alto-contraste .welcome p,
+body.alto-contraste .clientes-header p,
+body.alto-contraste .clients-hero p,
+body.alto-contraste .products-hero p,
+body.alto-contraste .sales-hero p,
+body.alto-contraste .reports-hero p {
+    color: #ffffff !important;
+}
+
+
+/* ==========================================================
+   14. ALTO CONTRASTE — CARDS
+   ========================================================== */
+
+body.alto-contraste .card,
+body.alto-contraste .summary-card,
+body.alto-contraste .report-card {
+    background: #000000 !important;
+
+    color: #ffffff !important;
+
+    border: 1px solid #ffff00 !important;
+
+    box-shadow: none !important;
+}
+
+
+body.alto-contraste .card-icon,
+body.alto-contraste .report-card-icon {
+    background: #000000 !important;
+
+    border: 1px solid #ffff00 !important;
+}
+
+
+body.alto-contraste .card p,
+body.alto-contraste .summary-label,
+body.alto-contraste .report-card span {
+    color: #ffffff !important;
+}
+
+
+body.alto-contraste .card strong,
+body.alto-contraste .summary-card strong,
+body.alto-contraste .report-card strong {
+    color: #ffff00 !important;
+}
+
+
+/* ==========================================================
+   15. ALTO CONTRASTE — PAINÉIS
+   ========================================================== */
+
+body.alto-contraste .panel,
+body.alto-contraste .painel-clientes,
+body.alto-contraste .clients-panel,
+body.alto-contraste .products-panel,
+body.alto-contraste .sales-panel,
+body.alto-contraste .report-panel {
+    background: #000000 !important;
+
+    color: #ffffff !important;
+
+    border: 1px solid #ffff00 !important;
+
+    box-shadow: none !important;
+}
+
+
+body.alto-contraste .panel-header,
+body.alto-contraste .panel-heading,
+body.alto-contraste .painel-clientes-header {
+    border-color: #ffff00 !important;
+}
+
+
+body.alto-contraste .panel-kicker {
+    color: #ffff00 !important;
+}
+
+
+/* ==========================================================
+   16. ALTO CONTRASTE — TEXTOS
+   ========================================================== */
+
+body.alto-contraste h1,
+body.alto-contraste h2,
+body.alto-contraste h3,
+body.alto-contraste h4,
+body.alto-contraste h5,
+body.alto-contraste h6 {
+    color: #ffffff !important;
+}
+
+
+body.alto-contraste p,
+body.alto-contraste label {
+    color: #ffffff !important;
+}
+
+
+/* ==========================================================
+   17. ALTO CONTRASTE — TABELAS
+   ========================================================== */
+
+body.alto-contraste .table-wrapper {
+    border-color: #ffff00 !important;
+}
+
+
+body.alto-contraste table {
+    background: #000000 !important;
+
+    color: #ffffff !important;
+
+    border-color: #ffff00 !important;
+}
+
+
+body.alto-contraste thead,
+body.alto-contraste tbody,
+body.alto-contraste tr {
+    background: #000000 !important;
+}
+
+
+body.alto-contraste th {
+    background: #000000 !important;
+
+    color: #ffff00 !important;
+
+    border-color: #ffff00 !important;
+}
+
+
+body.alto-contraste td {
+    background: #000000 !important;
+
+    color: #ffffff !important;
+
+    border-color: #ffff00 !important;
+}
+
+
+/* ==========================================================
+   18. ALTO CONTRASTE — FORMULÁRIOS
+   ========================================================== */
+
+body.alto-contraste input,
+body.alto-contraste select,
+body.alto-contraste textarea {
+    background: #000000 !important;
+
+    color: #ffffff !important;
+
+    border: 1px solid #ffff00 !important;
+}
+
+
+body.alto-contraste input::placeholder,
+body.alto-contraste textarea::placeholder {
+    color: #dddddd !important;
+
+    opacity: 1 !important;
+}
+
+
+body.alto-contraste option {
+    background: #000000 !important;
+
+    color: #ffffff !important;
+}
+
+
+/* ==========================================================
+   19. ALTO CONTRASTE — BOTÕES DO SISTEMA
+   ========================================================== */
+
+body.alto-contraste button:not(.acessibilidade-botao),
+body.alto-contraste .botao-primary,
+body.alto-contraste .botao-secundario,
+body.alto-contraste .botao-sair,
+body.alto-contraste .botao-exportar {
+    background: #000000 !important;
+
+    color: #ffff00 !important;
+
+    border: 1px solid #ffff00 !important;
+}
+
+
+body.alto-contraste button:not(.acessibilidade-botao):hover,
+body.alto-contraste .botao-primary:hover,
+body.alto-contraste .botao-secundario:hover,
+body.alto-contraste .botao-sair:hover,
+body.alto-contraste .botao-exportar:hover {
+    background: #ffff00 !important;
+
+    color: #000000 !important;
+
+    border-color: #ffff00 !important;
+}
+
+
+/* ==========================================================
+   20. ALTO CONTRASTE — STATUS / BADGES
+   ========================================================== */
+
+body.alto-contraste .welcome-badge,
+body.alto-contraste .hero-status,
+body.alto-contraste .report-status,
+body.alto-contraste .panel-badge,
+body.alto-contraste .status-badge {
+    background: #000000 !important;
+
+    color: #ffff00 !important;
+
+    border-color: #ffff00 !important;
+}
+
+
+/* ==========================================================
+   21. ALTO CONTRASTE — MODAIS
+   ========================================================== */
+
+body.alto-contraste .modal,
+body.alto-contraste .modal-overlay {
+    background: rgba(0, 0, 0, 0.96) !important;
+}
+
+
+body.alto-contraste .modal-card {
+    background: #000000 !important;
+
+    color: #ffffff !important;
+
+    border: 2px solid #ffff00 !important;
+
+    box-shadow: none !important;
+}
+
+
+body.alto-contraste .modal-header {
+    border-color: #ffff00 !important;
+}
+
+
+body.alto-contraste .modal-close,
+body.alto-contraste .fechar-modal {
+    background: #000000 !important;
+
+    color: #ffff00 !important;
+
+    border-color: #ffff00 !important;
+}
+
+
+/* ==========================================================
+   22. ALTO CONTRASTE — LISTAS
+   ========================================================== */
+
+body.alto-contraste .lista > *,
+body.alto-contraste .stock-list > *,
+body.alto-contraste .sale-item {
+    background: #000000 !important;
+
+    color: #ffffff !important;
+
+    border-color: #ffff00 !important;
+}
+
+
+/* ==========================================================
+   23. BARRA NO MODO ALTO CONTRASTE
+   ========================================================== */
+
+body.alto-contraste .acessibilidade-barra {
+    background: #000000 !important;
+
+    border: 2px solid #ffff00 !important;
+
+    box-shadow: none !important;
+}
+
+
+body.alto-contraste .acessibilidade-titulo {
+    color: #ffffff !important;
+}
+
+
+body.alto-contraste .acessibilidade-botao {
+    background: #000000 !important;
+
+    color: #ffff00 !important;
+
+    border: 1px solid #ffff00 !important;
+}
+
+
+body.alto-contraste
+.acessibilidade-botao[aria-pressed="true"] {
+    background: #ffff00 !important;
+
+    color: #000000 !important;
+
+    border-color: #ffff00 !important;
+}
+
+
+/* ==========================================================
+   24. FOCO NO MODO ALTO CONTRASTE
+   ========================================================== */
+
+body.alto-contraste *:focus-visible {
+    outline: 3px solid #ffff00 !important;
+
+    outline-offset: 3px !important;
+}
+
+
+/* ==========================================================
+   25. PROTEÇÃO DA BARRA DE ACESSIBILIDADE
+
+   A escala de conteúdo é controlada pelo acessibilidade.js.
+   A barra fica fora da .app-layout e mantém tamanho fixo.
+   ========================================================== */
+
+.acessibilidade-barra,
+.acessibilidade-barra *,
+.acessibilidade-barra button,
+.acessibilidade-barra span {
+    box-sizing: border-box !important;
+}
+
+
+/* ==========================================================
+   26. RESPONSIVIDADE DA BARRA
+   ========================================================== */
+
+@media (max-width: 700px) {
+
+    .acessibilidade-barra {
+        right: 12px !important;
+        bottom: 12px !important;
+
+        width: 218px !important;
+        min-width: 218px !important;
+        max-width: 218px !important;
+
+        height: 58px !important;
+        min-height: 58px !important;
+        max-height: 58px !important;
+
+        gap: 6px !important;
+
+        padding: 8px !important;
+    }
+
+
+    .acessibilidade-titulo {
+        display: none !important;
+    }
+
+
+    .acessibilidade-botao {
+        width: 42px !important;
+        min-width: 42px !important;
+        max-width: 42px !important;
+
+        height: 42px !important;
+        min-height: 42px !important;
+        max-height: 42px !important;
+
+        flex: 0 0 42px !important;
+    }
+}
+
+
+/* ==========================================================
+   27. REDUÇÃO DE MOVIMENTO
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+        transition-delay: 0ms !important;
+    }
+}
+
+
+/* ==========================================================
+   28. IMPRESSÃO
+   ========================================================== */
+
+@media print {
+
+    .acessibilidade-barra,
+    .skip-link,
+    #acessibilidade-status {
+        display: none !important;
+    }
+}

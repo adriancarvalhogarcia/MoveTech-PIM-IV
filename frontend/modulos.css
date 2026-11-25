@@ -1,0 +1,360 @@
+/* ==========================================================
+   MOVETECH — TELAS DO PIM IV
+   Usuários, Notas de entrada, Financeiro e devolução de venda.
+   Usa as variáveis e componentes globais do movetech.css.
+   ========================================================== */
+
+/* Elementos com o atributo hidden nunca aparecem, mesmo com display definido. */
+[hidden] { display: none !important; }
+
+/* ---------- Cabeçalho da tela ---------- */
+
+.mod-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 24px;
+}
+
+.mod-header p {
+    margin: 6px 0 0;
+    color: var(--mt-texto-secundario);
+    max-width: 640px;
+}
+
+.mod-header-acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* ---------- Cartões de resumo ---------- */
+
+.mod-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 14px;
+    margin-bottom: 22px;
+}
+
+.mod-card {
+    padding: 18px 20px;
+    border: 1px solid var(--mt-borda);
+    border-radius: var(--mt-radius-grande);
+    background: var(--mt-superficie);
+}
+
+.mod-card span {
+    display: block;
+    color: var(--mt-texto-secundario);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .02em;
+}
+
+.mod-card strong {
+    display: block;
+    margin-top: 8px;
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--mt-texto);
+}
+
+.mod-card small {
+    display: block;
+    margin-top: 4px;
+    color: var(--mt-texto-fraco);
+}
+
+.mod-card.positivo strong { color: var(--mt-verde); }
+.mod-card.negativo strong { color: var(--mt-vermelho); }
+.mod-card.alerta strong { color: var(--mt-amarelo); }
+
+/* ---------- Painel com tabela ---------- */
+
+.mod-painel {
+    padding: 22px;
+    border: 1px solid var(--mt-borda);
+    border-radius: var(--mt-radius-grande);
+    background: var(--mt-superficie);
+}
+
+.mod-painel + .mod-painel {
+    margin-top: 18px;
+}
+
+.mod-painel-topo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.mod-painel-topo h2 {
+    margin: 0;
+}
+
+/* ---------- Abas e filtros ---------- */
+
+.mod-abas {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 4px;
+    border: 1px solid var(--mt-borda);
+    border-radius: 12px;
+    background: var(--mt-superficie-3);
+}
+
+.mod-abas button {
+    min-height: 38px;
+    padding: 0 16px;
+    border: 0;
+    border-radius: 9px;
+    background: transparent;
+    color: var(--mt-texto-secundario);
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.mod-abas button[aria-selected="true"] {
+    background: var(--mt-verde-suave);
+    color: var(--mt-verde);
+    box-shadow: inset 0 0 0 1px var(--mt-verde-borda);
+}
+
+.mod-filtros {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.mod-filtros label,
+.mod-campo label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 13px;
+}
+
+/* ---------- Badges de situação ---------- */
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+    white-space: nowrap;
+    border: 1px solid transparent;
+}
+
+.badge::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.badge-ok { color: #8ef5a7; background: rgba(50, 224, 95, .08); border-color: rgba(50, 224, 95, .28); }
+.badge-aberta { color: #9fd2ff; background: rgba(80, 160, 255, .08); border-color: rgba(80, 160, 255, .28); }
+.badge-vencida { color: #ffb4b4; background: rgba(255, 98, 98, .09); border-color: rgba(255, 98, 98, .32); }
+.badge-cancelada { color: var(--mt-texto-fraco); background: rgba(255, 255, 255, .03); border-color: var(--mt-borda); }
+.badge-alerta { color: #ffd88a; background: rgba(255, 200, 87, .08); border-color: rgba(255, 200, 87, .3); }
+
+.tipo-receber { color: var(--mt-verde); font-weight: 800; }
+.tipo-pagar { color: var(--mt-vermelho); font-weight: 800; }
+
+/* ---------- Ações nas linhas ---------- */
+
+.mod-acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.mod-botao {
+    min-height: 34px;
+    padding: 0 11px;
+    border: 1px solid rgba(140, 165, 145, .2);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, .015);
+    color: var(--mt-texto);
+    font: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.mod-botao:hover,
+.mod-botao:focus-visible {
+    border-color: var(--mt-verde-borda);
+    background: var(--mt-verde-suave);
+}
+
+.mod-botao.perigo:hover,
+.mod-botao.perigo:focus-visible {
+    border-color: rgba(255, 98, 98, .45);
+    background: rgba(255, 98, 98, .06);
+    color: #ffc4c4;
+}
+
+.mod-botao[disabled] {
+    opacity: .45;
+    cursor: not-allowed;
+}
+
+.mod-vazio {
+    padding: 28px 12px;
+    text-align: center;
+    color: var(--mt-texto-secundario);
+}
+
+.texto-fraco { color: var(--mt-texto-fraco); font-size: 13px; }
+.valor { font-weight: 800; white-space: nowrap; }
+.direita { text-align: right; }
+
+/* ---------- Formulários dos modais ---------- */
+
+.mod-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 16px;
+}
+
+.mod-campo-full {
+    grid-column: 1 / -1;
+}
+
+.mod-campo input,
+.mod-campo select,
+.mod-campo textarea {
+    width: 100%;
+}
+
+.mod-ajuda {
+    margin: 6px 0 0;
+    font-size: 12px;
+    color: var(--mt-texto-fraco);
+}
+
+.mod-resumo-linha {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--mt-borda);
+}
+
+.mod-resumo-linha:last-child { border-bottom: 0; }
+
+.mod-modal-largo { width: min(1120px, 100%) !important; }
+.mod-modal-medio { width: min(620px, 100%) !important; }
+
+.mt-modal .feedback-message { margin-top: 14px; }
+
+/* ---------- Tabela editável (prévia da nota, devolução) ---------- */
+
+.mod-tabela-edit input,
+.mod-tabela-edit select {
+    min-height: 38px;
+    padding: 6px 10px;
+    font-size: 14px;
+}
+
+.mod-tabela-edit input[type="number"] { max-width: 120px; }
+
+.mod-item-novo td { background: rgba(50, 224, 95, .025); }
+
+#itens-previa td:last-child { min-width: 400px; }
+#itens-previa td:nth-child(5) { min-width: 200px; }
+#itens-previa .mod-form-grid { gap: 8px 10px; }
+#itens-previa .mod-campo label { margin-bottom: 3px; font-size: 12px; }
+#itens-previa .campo-produto { width: 100%; }
+
+/* ---------- Upload do XML ---------- */
+
+.mod-upload {
+    display: grid;
+    place-items: center;
+    gap: 8px;
+    padding: 30px 20px;
+    border: 2px dashed var(--mt-verde-borda);
+    border-radius: var(--mt-radius-grande);
+    background: var(--mt-verde-suave);
+    text-align: center;
+    cursor: pointer;
+}
+
+.mod-upload:focus-within,
+.mod-upload.arrastando {
+    border-color: var(--mt-verde);
+    outline: 2px solid var(--mt-verde-borda);
+}
+
+.mod-upload strong { font-size: 17px; }
+
+.mod-upload input[type="file"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.mod-cabecalho-nota {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin: 18px 0;
+}
+
+.mod-cabecalho-nota div {
+    padding: 12px 14px;
+    border: 1px solid var(--mt-borda);
+    border-radius: var(--mt-radius-medio);
+    background: var(--mt-superficie-2);
+}
+
+.mod-cabecalho-nota span { display: block; font-size: 12px; color: var(--mt-texto-fraco); }
+.mod-cabecalho-nota strong { display: block; margin-top: 4px; word-break: break-all; }
+
+/* ---------- Histórico ---------- */
+
+.mod-historico {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.mod-historico li {
+    padding: 10px 0 10px 16px;
+    border-left: 2px solid var(--mt-verde-borda);
+    position: relative;
+}
+
+.mod-historico li::before {
+    content: "";
+    position: absolute;
+    left: -6px;
+    top: 15px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--mt-verde);
+}
+
+/* ---------- Responsivo ---------- */
+
+@media (max-width: 760px) {
+    .mod-form-grid { grid-template-columns: 1fr; }
+    .mod-card strong { font-size: 20px; }
+    .mod-painel { padding: 16px; }
+}

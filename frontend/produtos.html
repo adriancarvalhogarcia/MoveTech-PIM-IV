@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Gestão de produtos e estoque do sistema MoveTech"
+    >
+
+    <title>Produtos | MoveTech</title>
+
+    <!-- PADRÃO VISUAL -->
+    <link rel="stylesheet" href="movetech.css">
+
+    <!-- ESTILOS DA TELA -->
+    <link rel="stylesheet" href="produtos.css">
+
+    <!-- ACESSIBILIDADE -->
+    <link rel="stylesheet" href="acessibilidade.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         PULAR PARA O CONTEÚDO
+    ====================================================== -->
+
+    <a
+        class="skip-link"
+        href="#conteudo-principal"
+    >
+        Ir para o conteúdo principal
+    </a>
+
+
+    <!-- =====================================================
+         ACESSIBILIDADE GLOBAL
+    ====================================================== -->
+
+    <div
+        class="acessibilidade-barra"
+        role="region"
+        aria-label="Ferramentas de acessibilidade"
+    >
+
+        <span class="acessibilidade-titulo">
+            ♿ Acessibilidade
+        </span>
+
+        <button
+            id="acessibilidade-aumentar"
+            class="acessibilidade-botao"
+            type="button"
+            aria-label="Aumentar tamanho do texto"
+            title="Aumentar texto"
+        >
+            A+
+        </button>
+
+        <button
+            id="acessibilidade-diminuir"
+            class="acessibilidade-botao"
+            type="button"
+            aria-label="Diminuir tamanho do texto"
+            title="Diminuir texto"
+        >
+            A−
+        </button>
+
+        <button
+            id="acessibilidade-contraste"
+            class="acessibilidade-botao"
+            type="button"
+            aria-label="Ativar ou desativar alto contraste"
+            aria-pressed="false"
+            title="Alto contraste"
+        >
+            ◐
+        </button>
+
+        <button
+            id="acessibilidade-restaurar"
+            class="acessibilidade-botao"
+            type="button"
+            aria-label="Restaurar configurações de acessibilidade"
+            title="Restaurar configurações"
+        >
+            ↺
+        </button>
+
+    </div>
+
+
+    <!-- LEITOR DE TELA -->
+
+    <div
+        id="acessibilidade-status"
+        class="sr-only"
+        aria-live="polite"
+        aria-atomic="true"
+    ></div>
+
+
+    <!-- =====================================================
+         SISTEMA
+    ====================================================== -->
+
+    <div class="app-layout">
+
+
+        <!-- =================================================
+             SIDEBAR
+        ================================================== -->
+
+        <aside
+            class="sidebar"
+            aria-label="Menu principal"
+        >
+
+            <div class="brand">
+
+                <div
+                    class="brand-icon"
+                    aria-hidden="true"
+                >
+                    <svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.8 12 3l9 7.8"/><path d="M5.5 9.5V21h13V9.5"/><path d="M9.5 21v-6h5v6"/></svg>
+                </div>
+
+                <div>
+
+                    <strong>
+                        MOVE<span>TECH</span>
+                    </strong>
+
+                    <small>
+                        Gestão Empresarial
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- NAVEGAÇÃO -->
+
+            <nav
+                class="menu"
+                aria-label="Navegação principal"
+            >
+
+                <a href="dashboard.html">
+                    <span aria-hidden="true"><svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.8 12 3l9 7.8"/><path d="M5.5 9.5V21h13V9.5"/><path d="M9.5 21v-6h5v6"/></svg></span>
+                    Dashboard
+                </a>
+
+                <a href="clientes.html">
+                    <span aria-hidden="true"><svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+                    Clientes
+                </a>
+
+                <a
+                    href="produtos.html"
+                    class="active"
+                    aria-current="page"
+                >
+                    <span aria-hidden="true"><svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m21 8-9-5-9 5 9 5 9-5Z"/><path d="M3 8v9l9 5 9-5V8"/><path d="M12 13v9"/></svg></span>
+                    Produtos
+                </a>
+
+                <a href="vendas.html">
+                    <span aria-hidden="true"><svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1"/><circle cx="19" cy="20" r="1"/><path d="M3 4h2l2.4 10.4a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 7H6"/></svg></span>
+                    Vendas
+                </a>
+
+                <a href="relatorios.html">
+                    <span aria-hidden="true"><svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/></svg></span>
+                    Relatórios
+                </a>
+
+            </nav>
+
+
+            <!-- USUÁRIO -->
+
+            <div class="sidebar-footer">
+
+                <div class="usuario">
+
+                    <div
+                        class="usuario-avatar"
+                        aria-hidden="true"
+                    >
+                        <svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+                    </div>
+
+                    <div>
+
+                        <strong id="usuario-nome">
+                            Usuário
+                        </strong>
+
+                        <small id="usuario-perfil">
+                            Perfil
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="botao-sair"
+                    class="botao-sair"
+                    aria-label="Sair do sistema MoveTech"
+                >
+                    Sair
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =================================================
+             ÁREA PRINCIPAL
+        ================================================== -->
+
+        <div class="main-area">
+
+
+            <!-- TOPBAR -->
+
+            <header class="topbar">
+
+                <div>
+
+                    <p class="page-kicker">
+                        ESTOQUE
+                    </p>
+
+                    <h1>
+                        Produtos
+                    </h1>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="botao-novo-produto"
+                    class="botao-primary"
+                >
+                    + Novo produto
+                </button>
+
+            </header>
+
+
+            <!-- =================================================
+                 CONTEÚDO
+            ================================================== -->
+
+            <main
+                id="conteudo-principal"
+                class="content"
+            >
+
+
+                <!-- APRESENTAÇÃO -->
+
+                <section class="products-hero">
+
+                    <div class="products-hero-content">
+
+                        <p class="welcome-kicker">
+                            GESTÃO DE ESTOQUE
+                        </p>
+
+                        <h2>
+                            Produtos cadastrados
+                        </h2>
+
+                        <p>
+                            Consulte, cadastre, edite e desative produtos.
+                            Acompanhe também os níveis de estoque da MoveTech.
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     INDICADORES
+                ================================================== -->
+
+                <section
+                    class="products-summary"
+                    aria-label="Resumo dos produtos"
+                >
+
+
+                    <article class="summary-card">
+
+                        <span class="summary-label">
+                            Produtos cadastrados
+                        </span>
+
+                        <strong id="resumo-total-produtos">
+                            0
+                        </strong>
+
+                    </article>
+
+
+                    <article class="summary-card">
+
+                        <span class="summary-label">
+                            Produtos ativos
+                        </span>
+
+                        <strong id="resumo-produtos-ativos">
+                            0
+                        </strong>
+
+                    </article>
+
+
+                    <article class="summary-card">
+
+                        <span class="summary-label">
+                            Estoque baixo
+                        </span>
+
+                        <strong id="resumo-estoque-baixo">
+                            0
+                        </strong>
+
+                    </article>
+
+                </section>
+
+
+                <!-- =================================================
+                     CATÁLOGO
+                ================================================== -->
+
+                <section class="products-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <p class="welcome-kicker">
+                                CATÁLOGO
+                            </p>
+
+                            <h2>
+                                Lista de produtos
+                            </h2>
+
+                        </div>
+
+
+                        <div class="search-wrapper">
+
+                            <label for="busca-produto">
+                                Buscar produto
+                            </label>
+
+                            <input
+                                type="search"
+                                id="busca-produto"
+                                placeholder="Nome ou categoria"
+                                autocomplete="off"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- MENSAGENS -->
+
+                    <div
+                        id="mensagem-produtos"
+                        class="mensagem-produtos"
+                        role="status"
+                        aria-live="polite"
+                        hidden
+                    ></div>
+
+
+                    <!-- TABELA -->
+
+                    <div
+                        class="table-wrapper"
+                        tabindex="0"
+                        aria-label="Tabela de produtos cadastrados"
+                    >
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th scope="col">
+                                        Produto
+                                    </th>
+
+                                    <th scope="col">
+                                        Categoria
+                                    </th>
+
+                                    <th scope="col">
+                                        Preço
+                                    </th>
+
+                                    <th scope="col">
+                                        Estoque
+                                    </th>
+
+                                    <th scope="col">
+                                        Mínimo
+                                    </th>
+
+                                    <th scope="col">
+                                        Status
+                                    </th>
+
+                                    <th scope="col">
+                                        Ações
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody id="tabela-produtos">
+
+                                <tr>
+
+                                    <td
+                                        colspan="7"
+                                        class="empty-state"
+                                    >
+                                        Carregando produtos...
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+            </main>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         MODAL — NOVO / EDITAR PRODUTO
+    ====================================================== -->
+
+    <div
+        class="modal-overlay"
+        id="modal-produto"
+        hidden
+        aria-hidden="true"
+    >
+
+        <div
+            class="modal-card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="titulo-modal-produto"
+        >
+
+            <div class="modal-header">
+
+                <div>
+
+                    <p class="welcome-kicker">
+                        PRODUTO
+                    </p>
+
+                    <h2 id="titulo-modal-produto">
+                        Novo produto
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="fechar-modal-produto"
+                    class="modal-close"
+                    aria-label="Fechar janela"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="form-produto">
+
+
+                <!-- ID -->
+
+                <input
+                    type="hidden"
+                    id="produto-id"
+                >
+
+
+                <!-- NOME -->
+
+                <div class="form-group">
+
+                    <label for="produto-nome">
+                        Nome do produto
+                    </label>
+
+                    <input
+                        type="text"
+                        id="produto-nome"
+                        maxlength="150"
+                        placeholder="Ex.: Sofá Retrátil Premium"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- DESCRIÇÃO -->
+
+                <div class="form-group">
+
+                    <label for="produto-descricao">
+                        Descrição
+                    </label>
+
+                    <textarea
+                        id="produto-descricao"
+                        maxlength="500"
+                        placeholder="Descrição do produto"
+                    ></textarea>
+
+                </div>
+
+
+                <!-- CATEGORIA -->
+
+                <div class="form-group">
+
+                    <label for="produto-categoria">
+                        Categoria
+                    </label>
+
+                    <input
+                        type="text"
+                        id="produto-categoria"
+                        maxlength="100"
+                        placeholder="Ex.: Sofás"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-grid">
+
+
+                    <!-- PREÇO -->
+
+                    <div class="form-group">
+
+                        <label for="produto-preco">
+                            Preço
+                        </label>
+
+                        <input
+                            type="number"
+                            id="produto-preco"
+                            min="0"
+                            step="0.01"
+                            placeholder="0,00"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- ESTOQUE -->
+
+                    <div class="form-group">
+
+                        <label for="produto-estoque">
+                            Quantidade em estoque
+                        </label>
+
+                        <input
+                            type="number"
+                            id="produto-estoque"
+                            min="0"
+                            step="1"
+                            value="0"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- ESTOQUE MÍNIMO -->
+
+                    <div class="form-group">
+
+                        <label for="produto-estoque-minimo">
+                            Estoque mínimo
+                        </label>
+
+                        <input
+                            type="number"
+                            id="produto-estoque-minimo"
+                            min="0"
+                            step="1"
+                            value="0"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- STATUS -->
+
+                <div class="form-group">
+
+                    <label for="produto-status">
+                        Status
+                    </label>
+
+                    <select
+                        id="produto-status"
+                        required
+                    >
+
+                        <option value="true">
+                            Ativo
+                        </option>
+
+                        <option value="false">
+                            Inativo
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- MENSAGEM -->
+
+                <div
+                    id="mensagem-form-produto"
+                    class="mensagem-form"
+                    role="status"
+                    aria-live="polite"
+                    hidden
+                ></div>
+
+
+                <!-- AÇÕES -->
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        id="cancelar-produto"
+                        class="botao-secundario"
+                    >
+                        Cancelar
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="botao-primary"
+                    >
+                        Salvar produto
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="acessibilidade.js"></script>
+    <!-- VLibras -->
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+
+    <script src="mt-comum.js"></script>
+    <script src="produtos.js"></script>
+
+</body>
+
+</html>

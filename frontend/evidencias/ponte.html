@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Ponte de evidências</title></head>
+<body style="font-family:sans-serif;background:#111;color:#eee">
+<p id="s">Enviando evidências para a janela do Trello...</p>
+<script>
+// Usado só para anexar os prints de evidência nos cards do Trello:
+// lê os arquivos desta pasta e entrega para a janela que abriu esta.
+(async()=>{
+  const lista=await (await fetch("lista.json",{cache:"no-store"})).json();
+  for(const nome of lista){
+    const blob=await (await fetch(nome,{cache:"no-store"})).blob();
+    window.opener.postMessage({tipo:"evidencia",nome,blob},"https://trello.com");
+  }
+  window.opener.postMessage({tipo:"fim",total:lista.length},"https://trello.com");
+  document.getElementById("s").textContent="Pronto: "+lista.length+" arquivo(s).";
+})();
+</script></body></html>

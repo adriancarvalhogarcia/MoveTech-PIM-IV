@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Teste de responsividade | MoveTech</title>
+<style>
+body{font-family:Segoe UI,Arial,sans-serif;background:#07110b;color:#e8efe9;margin:0;padding:16px}
+h1{color:#32e05f;font-size:20px;margin:0 0 4px}p{color:#9fb0a4;margin:0 0 12px;font-size:13px}
+.linha{display:flex;gap:18px;align-items:flex-start}
+.disp{display:flex;flex-direction:column;gap:6px}
+.disp b{font-size:13px}.r{font-size:12px;padding:2px 8px;border-radius:20px;width:max-content}
+.ok{background:#1d5c33;color:#bff5cf}.er{background:#5c1d1d;color:#f5bfbf}
+.moldura{border:2px solid #2b4a37;border-radius:14px;overflow:hidden;background:#000}
+iframe{border:0;transform-origin:0 0;display:block}
+</style></head><body>
+<h1>MoveTech — teste de responsividade</h1>
+<p>As telas reais em larguras de celular (390 px) e tablet (768 px). O selo verde indica que não há rolagem horizontal.</p>
+<div class="linha" id="l"></div>
+<script>
+const telas=[["Celular 390×844 — Dashboard","../dashboard.html",390,844,.62],["Celular 390×844 — Vendas","../vendas.html",390,844,.62],["Celular 390×844 — Financeiro","../financeiro.html",390,844,.62],["Tablet 768×1024 — Produtos","../produtos.html",768,1024,.5]];
+for(const [n,u,w,h,e] of telas){
+ const d=document.createElement("div");d.className="disp";
+ d.innerHTML=`<b></b><span class="r">verificando…</span><div class="moldura" style="width:${w*e}px;height:${h*e}px"><iframe src="${u}" width="${w}" height="${h}" style="transform:scale(${e})"></iframe></div>`;
+ d.querySelector("b").textContent=n; document.getElementById("l").appendChild(d);
+ const f=d.querySelector("iframe"), s=d.querySelector(".r");
+ f.onload=()=>setTimeout(()=>{const de=f.contentDocument.documentElement;const sobra=de.scrollWidth-de.clientWidth;
+  s.textContent=sobra<=1?"sem rolagem horizontal ✓":"rolagem horizontal de "+sobra+" px";s.className="r "+(sobra<=1?"ok":"er");},2500);
+}
+</script></body></html>

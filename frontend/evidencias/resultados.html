@@ -1,0 +1,52 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>Resultados dos testes | MoveTech</title>
+<style>body{font-family:Consolas,monospace;background:#07110b;color:#cfe3d4;margin:0;padding:24px;font-size:13px}
+h1{font-family:Segoe UI,Arial;color:#32e05f;font-size:22px;margin:0 0 4px}h2{font-family:Segoe UI,Arial;color:#e8efe9;font-size:16px;margin:22px 0 8px}
+.box{background:#0d1d13;border:1px solid #1f3a29;border-radius:10px;padding:12px 14px;line-height:1.55}.ok{color:#7ef0a0}.er{color:#ff8f8f}
+p{font-family:Segoe UI,Arial;color:#9fb0a4;margin:0}</style></head><body>
+<h1>MoveTech — resultados dos testes automatizados</h1><p>Gerado a partir de logs\resultado_banco_limpo.txt e logs\resultado_app.txt</p>
+<h2>1. Banco de dados criado do zero (ferramentas\testar_banco_limpo.cmd)</h2><div class="box"><div class="">Teste do banco limpo - 04/11/2026 14:27</div>
+<div class=""></div>
+<div class="ok">[ OK ] Script 01_criar_banco.sql em banco limpo</div>
+<div class="ok">[ OK ] Script 02_dados_iniciais.sql em banco limpo</div>
+<div class="ok">[ OK ] API de teste subiu e /health respondeu - Healthy</div>
+<div class="ok">[ OK ] Tabelas criadas - 14 tabelas</div>
+<div class="ok">[ OK ] Triggers criadas - 4 triggers</div>
+<div class="ok">[ OK ] Procedures criadas - 4 procedures</div>
+<div class="ok">[ OK ] Migrations registradas - 7 migrations</div>
+<div class="ok">[ OK ] Trigger bloqueia estoque negativo (UPDATE) - ERROR 1644 (45000) at line 1: Estoque nao pode ser negativo.</div>
+<div class="ok">[ OK ] Trigger bloqueia estoque negativo (INSERT) - ERROR 1644 (45000) at line 1: Estoque nao pode ser negativo.</div>
+<div class="ok">[ OK ] Trigger bloqueia conta com valor zero - ERROR 1644 (45000) at line 1: O valor da conta deve ser maior que zero.</div>
+<div class="ok">[ OK ] Login do admin no banco limpo</div>
+<div class="ok">[ OK ] Venda registrada pela API - venda #1, produto Mesa de jantar 6 cadeiras</div>
+<div class="ok">[ OK ] Trigger de auditoria gravou a saida - 2 -&gt; 1</div>
+<div class="ok">[ OK ] sp_resumo_vendas_periodo - vendas: 1, liquido: 1899.00</div>
+<div class="ok">[ OK ] sp_produtos_estoque_baixo - 1 produto(s)</div>
+<div class="ok">[ OK ] sp_contas_vencidas - 0 conta(s)</div>
+<div class="ok">[ OK ] Modelo logico exportado - 116 colunas</div>
+<div class=""></div>
+<div class="">Falhas: 0</div></div>
+<h2>2. App Flutter (ferramentas\testar_app.cmd)</h2><div class="box"><div class="">Testes do app - 04/11/2026 14:26</div>
+<div class="ok">flutter analyze: OK</div>
+<div class="">flutter test:    OK</div><div>flutter analyze: 7 issues found (apenas avisos "info", nenhum erro)</div><br><div class="">00:00 +0: loading C:/Users/stvnr/source/MoveTech_PIM4/mobile/test/widget_test.dart</div>
+<div class="">00:00 +0: Formatadores moeda no padrão brasileiro</div>
+<div class="">00:00 +1: Formatadores CPF formatado</div>
+<div class="">00:00 +2: Formatadores data da API sem fuso é tratada como UTC</div>
+<div class="">00:00 +3: Validadores CPF válido e inválido</div>
+<div class="">00:00 +4: Validadores nome de pessoa</div>
+<div class="">00:00 +5: Validadores telefone opcional, com DDD</div>
+<div class="">00:00 +6: Validadores endereço da API</div>
+<div class="">00:00 +7: Validadores quantidade limitada ao estoque</div>
+<div class="">00:00 +8: Validadores preço e quantidades do cadastro de produto</div>
+<div class="">00:00 +9: Validadores e-mail opcional aceita vazio</div>
+<div class="">00:00 +10: Modelos x JSON da API Produto e regra de estoque baixo</div>
+<div class="">00:00 +11: Modelos x JSON da API Produto gera o corpo do CriarProdutoDto</div>
+<div class="">00:00 +12: Modelos x JSON da API Cliente envia campos vazios como null</div>
+<div class="">00:00 +13: Modelos x JSON da API Venda do GET (cliente objeto) e do POST (cliente texto)</div>
+<div class="">00:00 +14: Modelos x JSON da API Venda pendente gera o corpo do CriarVendaDto</div>
+<div class="">00:00 +15: Modelos x JSON da API Dashboard</div>
+<div class="">00:00 +16: Forma de pagamento (PIM IV) à vista não parcela</div>
+<div class="">00:00 +17: Forma de pagamento (PIM IV) crédito, boleto e crediário parcelam</div>
+<div class="">00:00 +18: Forma de pagamento (PIM IV) nome amigável</div>
+<div class="ok">00:00 +19: All tests passed!</div></div>
+<h2>3. Backup (ferramentas\backup_banco.cmd)</h2><div class="box"><div class="ok">[ OK ] smartmoveis_20261104_1421.sql — 38 KB, 4 triggers e 4 procedures incluídos (mysqldump --routines --triggers)</div></div>
+</body></html>

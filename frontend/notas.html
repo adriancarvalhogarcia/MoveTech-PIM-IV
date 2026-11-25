@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Importação de XML de NF-e para entrada de produtos no MoveTech"
+    >
+
+    <title>Notas de entrada | MoveTech</title>
+
+    <!-- PADRÃO VISUAL -->
+    <link rel="stylesheet" href="movetech.css">
+
+    <!-- ESTILOS DA TELA -->
+    <link rel="stylesheet" href="modulos.css">
+
+    <!-- ACESSIBILIDADE -->
+    <link rel="stylesheet" href="acessibilidade.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         PULAR PARA O CONTEÚDO
+    ====================================================== -->
+
+    <a
+        class="skip-link"
+        href="#conteudo-principal"
+    >
+        Ir para o conteúdo principal
+    </a>
+
+
+    <!-- =====================================================
+         ACESSIBILIDADE GLOBAL
+    ====================================================== -->
+
+    <div
+        class="acessibilidade-barra"
+        role="region"
+        aria-label="Ferramentas de acessibilidade"
+    >
+
+        <span class="acessibilidade-titulo">
+            ♿ Acessibilidade
+        </span>
+
+        <button
+            id="acessibilidade-aumentar"
+            class="acessibilidade-botao"
+            type="button"
+            aria-label="Aumentar tamanho do texto"
+            title="Aumentar texto"
+        >
+            A+
+        </button>
+
+        <button
+            id="acessibilidade-diminuir"
+            class="acessibilidade-botao"
+            type="button"
+            aria-label="Diminuir tamanho do texto"
+            title="Diminuir texto"
+        >
+            A−
+        </button>
+
+        <button
+            id="acessibilidade-contraste"
+            class="acessibilidade-botao"
+            type="button"
+            aria-label="Ativar ou desativar alto contraste"
+            aria-pressed="false"
+            title="Alto contraste"
+        >
+            ◐
+        </button>
+
+        <button
+            id="acessibilidade-restaurar"
+            class="acessibilidade-botao"
+            type="button"
+            aria-label="Restaurar configurações de acessibilidade"
+            title="Restaurar configurações"
+        >
+            ↺
+        </button>
+
+    </div>
+
+
+    <div
+        id="acessibilidade-status"
+        class="sr-only"
+        aria-live="polite"
+        aria-atomic="true"
+    ></div>
+
+
+    <!-- =====================================================
+         SISTEMA
+    ====================================================== -->
+
+    <div class="app-layout">
+
+
+        <!-- =================================================
+             MENU LATERAL
+        ================================================== -->
+
+        <aside
+            class="sidebar"
+            aria-label="Menu principal"
+        >
+
+            <!-- MARCA -->
+
+            <div class="brand">
+
+                <div
+                    class="brand-icon"
+                    aria-hidden="true"
+                >
+                    <svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.8 12 3l9 7.8"/><path d="M5.5 9.5V21h13V9.5"/><path d="M9.5 21v-6h5v6"/></svg>
+                </div>
+
+                <div>
+
+                    <strong>
+                        MOVE<span>TECH</span>
+                    </strong>
+
+                    <small>
+                        Gestão Empresarial
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- NAVEGAÇÃO -->
+
+            <nav
+                class="menu"
+                aria-label="Navegação principal"
+            >
+
+                <a href="dashboard.html">
+                    <span aria-hidden="true"><svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.8 12 3l9 7.8"/><path d="M5.5 9.5V21h13V9.5"/><path d="M9.5 21v-6h5v6"/></svg></span>
+                    Dashboard
+                </a>
+
+                <a href="clientes.html">
+                    <span aria-hidden="true"><svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+                    Clientes
+                </a>
+
+                <a href="produtos.html">
+                    <span aria-hidden="true"><svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m21 8-9-5-9 5 9 5 9-5Z"/><path d="M3 8v9l9 5 9-5V8"/><path d="M12 13v9"/></svg></span>
+                    Produtos
+                </a>
+
+                <a href="vendas.html">
+                    <span aria-hidden="true"><svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1"/><circle cx="19" cy="20" r="1"/><path d="M3 4h2l2.4 10.4a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 7H6"/></svg></span>
+                    Vendas
+                </a>
+
+                <a href="relatorios.html">
+                    <span aria-hidden="true"><svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/></svg></span>
+                    Relatórios
+                </a>
+
+            </nav>
+
+
+            <!-- USUÁRIO -->
+
+            <div class="sidebar-footer">
+
+                <div class="usuario">
+
+                    <div
+                        class="usuario-avatar"
+                        aria-hidden="true"
+                    >
+                        <svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+                    </div>
+
+                    <div>
+
+                        <strong id="usuario-nome">
+                            Usuário
+                        </strong>
+
+                        <small id="usuario-perfil">
+                            Perfil
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    id="botao-sair"
+                    class="botao-sair"
+                    type="button"
+                    aria-label="Sair do sistema MoveTech"
+                >
+                    Sair
+                </button>
+
+            </div>
+
+        </aside>
+
+        <div class="main-area">
+
+            <header class="topbar">
+                <div>
+                    <p class="page-kicker">ESTOQUE</p>
+                    <h1>Notas de entrada</h1>
+                </div>
+                <div class="mod-header-acoes">
+                    <button id="botao-importar" class="botao-primary" type="button">+ Importar XML</button>
+                </div>
+            </header>
+
+            <main id="conteudo-principal" class="content">
+
+                <section class="mod-header" aria-labelledby="titulo-notas">
+                    <div>
+                        <p class="welcome-kicker">ENTRADA DE MERCADORIAS</p>
+                        <h2 id="titulo-notas">Notas de entrada</h2>
+                        <p>Importe o XML da NF-e do fornecedor: o sistema soma o estoque, recalcula o custo médio,
+                           cadastra os produtos que ainda não existem e gera as contas a pagar.</p>
+                    </div>
+                </section>
+
+                <div id="mensagem-notas" class="feedback-message" role="status" aria-live="polite" hidden></div>
+
+                <section class="mod-painel" aria-labelledby="titulo-lista-notas">
+                    <div class="mod-painel-topo">
+                        <h2 id="titulo-lista-notas">Notas lançadas</h2>
+                        <div class="mod-campo" style="min-width:240px">
+                            <label for="busca-nota" class="sr-only">Buscar nota</label>
+                            <input type="search" id="busca-nota" placeholder="Número, fornecedor ou chave" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="table-wrapper" tabindex="0" aria-label="Tabela de notas de entrada">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nota</th>
+                                    <th scope="col">Fornecedor</th>
+                                    <th scope="col">Emissão</th>
+                                    <th scope="col">Itens</th>
+                                    <th scope="col">Valor</th>
+                                    <th scope="col">Lançada em</th>
+                                    <th scope="col">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabela-notas">
+                                <tr><td colspan="7" class="mod-vazio">Carregando notas...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <!-- MODAL: IMPORTAR XML -->
+    <div id="modal-importar" class="modal-overlay mt-modal" hidden aria-hidden="true">
+        <div class="modal-card mod-modal-largo" role="dialog" aria-modal="true" aria-labelledby="titulo-importar">
+            <div class="modal-header">
+                <div>
+                    <p class="panel-kicker">NF-E</p>
+                    <h2 id="titulo-importar">Importar nota de entrada</h2>
+                </div>
+                <button type="button" class="modal-close" data-fechar aria-label="Fechar">×</button>
+            </div>
+
+            <!-- PASSO 1: ARQUIVO -->
+            <div id="passo-arquivo">
+                <label class="mod-upload" id="area-upload" for="arquivo-xml">
+                    <strong>Escolha o arquivo XML da NF-e</strong>
+                    <span class="texto-fraco">ou arraste o arquivo para cá (apenas .xml, até 5 MB)</span>
+                    <input type="file" id="arquivo-xml" accept=".xml,text/xml,application/xml">
+                </label>
+                <div class="mod-form-grid" style="margin-top:16px">
+                    <div class="mod-campo">
+                        <label for="markup">Markup para produtos novos (%)</label>
+                        <input type="number" id="markup" min="0" max="1000" step="0.1" value="80">
+                        <p class="mod-ajuda">Preço de venda sugerido = custo × (1 + markup). Dá para ajustar item a item.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PASSO 2: PRÉVIA -->
+            <div id="passo-previa" hidden>
+                <div id="cabecalho-nota" class="mod-cabecalho-nota"></div>
+
+                <div class="table-wrapper mod-tabela-edit" tabindex="0" aria-label="Itens da nota">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Produto na nota</th>
+                                <th scope="col">Qtd</th>
+                                <th scope="col">Custo unit.</th>
+                                <th scope="col">O que fazer</th>
+                                <th scope="col">Cadastro no MoveTech</th>
+                            </tr>
+                        </thead>
+                        <tbody id="itens-previa"></tbody>
+                    </table>
+                </div>
+
+                <section class="mod-painel" style="margin-top:16px" aria-labelledby="titulo-pagamento-nota">
+                    <h3 id="titulo-pagamento-nota" style="margin-top:0">Contas a pagar</h3>
+                    <div id="duplicatas-nota"></div>
+                    <div id="parcelas-manuais" class="mod-form-grid" hidden>
+                        <div class="mod-campo">
+                            <label for="nota-parcelas">Parcelas</label>
+                            <input type="number" id="nota-parcelas" min="1" max="24" value="1">
+                        </div>
+                        <div class="mod-campo">
+                            <label for="nota-vencimento">Primeiro vencimento</label>
+                            <input type="date" id="nota-vencimento">
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div id="mensagem-importar" class="feedback-message" role="alert" aria-live="polite" hidden></div>
+
+            <div class="modal-actions">
+                <button type="button" class="botao-secundario" data-fechar>Cancelar</button>
+                <button type="button" id="botao-trocar-arquivo" class="botao-secundario" hidden>Escolher outro XML</button>
+                <button type="button" id="botao-confirmar-nota" class="botao-primary" hidden>Confirmar entrada</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: DETALHE DA NOTA -->
+    <div id="modal-detalhe-nota" class="modal-overlay mt-modal" hidden aria-hidden="true">
+        <div class="modal-card mod-modal-largo" role="dialog" aria-modal="true" aria-labelledby="titulo-detalhe-nota">
+            <div class="modal-header">
+                <div>
+                    <p class="panel-kicker">NOTA DE ENTRADA</p>
+                    <h2 id="titulo-detalhe-nota">Nota</h2>
+                </div>
+                <button type="button" class="modal-close" data-fechar aria-label="Fechar">×</button>
+            </div>
+            <div id="conteudo-detalhe-nota"></div>
+            <div class="modal-actions">
+                <button type="button" class="botao-secundario" data-fechar>Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="acessibilidade.js"></script>
+    <!-- VLibras -->
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script src="mt-comum.js"></script>
+    <script src="notas.js"></script>
+</body>
+
+</html>

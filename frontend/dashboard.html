@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Dashboard do sistema MoveTech"
+    >
+
+    <title>Dashboard | MoveTech</title>
+
+    <!-- CSS GLOBAL MOVETECH -->
+    <link rel="stylesheet" href="movetech.css">
+
+    <!-- CSS ESPECÍFICO DO DASHBOARD -->
+    <link rel="stylesheet" href="dashboard.css">
+
+    <!-- ACESSIBILIDADE -->
+    <link rel="stylesheet" href="acessibilidade.css">
+</head>
+
+<body class="dashboard-page">
+
+    <!-- =====================================================
+         ACESSIBILIDADE GLOBAL
+    ====================================================== -->
+
+    <div
+        class="acessibilidade-barra"
+        role="region"
+        aria-label="Ferramentas de acessibilidade"
+    >
+
+        <span class="acessibilidade-titulo">
+            ♿ Acessibilidade
+        </span>
+
+        <button
+            id="acessibilidade-aumentar"
+            class="acessibilidade-botao"
+            type="button"
+            aria-label="Aumentar tamanho do texto"
+            title="Aumentar texto"
+        >
+            A+
+        </button>
+
+        <button
+            id="acessibilidade-diminuir"
+            class="acessibilidade-botao"
+            type="button"
+            aria-label="Diminuir tamanho do texto"
+            title="Diminuir texto"
+        >
+            A−
+        </button>
+
+        <button
+            id="acessibilidade-contraste"
+            class="acessibilidade-botao"
+            type="button"
+            aria-label="Ativar ou desativar alto contraste"
+            aria-pressed="false"
+            title="Alto contraste"
+        >
+            ◐
+        </button>
+
+        <button
+            id="acessibilidade-restaurar"
+            class="acessibilidade-botao"
+            type="button"
+            aria-label="Restaurar configurações de acessibilidade"
+            title="Restaurar configurações"
+        >
+            ↺
+        </button>
+
+    </div>
+
+    <!-- LEITOR DE TELA -->
+
+    <div
+        id="acessibilidade-status"
+        class="sr-only"
+        aria-live="polite"
+        aria-atomic="true"
+    ></div>
+
+    <!-- PULAR PARA CONTEÚDO -->
+
+    <a
+        class="skip-link"
+        href="#conteudo-principal"
+    >
+        Ir para o conteúdo principal
+    </a>
+
+    <!-- =====================================================
+         SISTEMA
+    ====================================================== -->
+
+    <div class="app-layout">
+
+        <!-- =================================================
+             SIDEBAR
+        ================================================== -->
+
+        <aside
+            class="sidebar"
+            aria-label="Menu principal"
+        >
+
+            <!-- MARCA -->
+
+            <div class="brand">
+
+                <div
+                    class="brand-icon"
+                    aria-hidden="true"
+                >
+                    <svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.8 12 3l9 7.8"/><path d="M5.5 9.5V21h13V9.5"/><path d="M9.5 21v-6h5v6"/><path d="M16.5 5.8h2.2v3"/></svg>
+                </div>
+
+                <div>
+
+                    <strong>
+                        MOVE<span>TECH</span>
+                    </strong>
+
+                    <small>
+                        Gestão Empresarial
+                    </small>
+
+                </div>
+
+            </div>
+
+            <!-- MENU -->
+
+            <nav
+                class="menu"
+                aria-label="Navegação principal"
+            >
+
+                <a
+                    href="dashboard.html"
+                    class="active"
+                    aria-current="page"
+                >
+                    <span aria-hidden="true">
+                        <svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.8 12 3l9 7.8"/><path d="M5.5 9.5V21h13V9.5"/><path d="M9.5 21v-6h5v6"/><path d="M16.5 5.8h2.2v3"/></svg>
+                    </span>
+
+                    Dashboard
+                </a>
+
+                <a href="clientes.html">
+
+                    <span aria-hidden="true">
+                        <svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </span>
+
+                    Clientes
+                </a>
+
+                <a href="produtos.html">
+
+                    <span aria-hidden="true">
+                        <svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m21 8-9-5-9 5 9 5 9-5Z"/><path d="m3 8 9 5 9-5"/><path d="M12 13v9"/><path d="M3 8v9l9 5 9-5V8"/></svg>
+                    </span>
+
+                    Produtos
+                </a>
+
+                <a href="vendas.html">
+
+                    <span aria-hidden="true">
+                        <svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1"/><circle cx="19" cy="20" r="1"/><path d="M3 4h2l2.4 10.4a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 7H6"/><path d="M9 10h8"/></svg>
+                    </span>
+
+                    Vendas
+                </a>
+
+                <a href="relatorios.html">
+
+                    <span aria-hidden="true">
+                        <svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/></svg>
+                    </span>
+
+                    Relatórios
+                </a>
+
+            </nav>
+
+            <!-- USUÁRIO -->
+
+            <div class="sidebar-footer">
+
+                <div class="usuario">
+
+                    <div
+                        class="usuario-avatar"
+                        aria-hidden="true"
+                    >
+                        <svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+                    </div>
+
+                    <div>
+
+                        <strong id="usuario-nome">
+                            Usuário
+                        </strong>
+
+                        <small id="usuario-perfil">
+                            Perfil
+                        </small>
+
+                    </div>
+
+                </div>
+
+                <button
+                    id="botao-sair"
+                    class="botao-sair"
+                    type="button"
+                    aria-label="Sair do sistema MoveTech"
+                >
+                    Sair
+                </button>
+
+            </div>
+
+        </aside>
+
+        <!-- =================================================
+             ÁREA PRINCIPAL
+        ================================================== -->
+
+        <div class="main-area">
+
+            <!-- =============================================
+                 TOPBAR
+            ============================================== -->
+
+            <header class="topbar">
+
+                <div>
+
+                    <p class="page-kicker">
+                        PAINEL DE CONTROLE
+                    </p>
+
+                    <h1>
+                        Dashboard
+                    </h1>
+
+                </div>
+
+                <div class="topbar-actions">
+
+                    <button
+                        id="botao-atualizar"
+                        class="botao-secundario"
+                        type="button"
+                        aria-label="Atualizar dados do dashboard"
+                    >
+                        Atualizar dados
+                    </button>
+
+                </div>
+
+            </header>
+
+            <!-- =============================================
+                 CONTEÚDO
+            ============================================== -->
+
+            <main
+                id="conteudo-principal"
+                class="content"
+            >
+
+                <!-- =========================================
+                     BOAS-VINDAS
+                ========================================== -->
+
+                <section
+                    class="welcome"
+                    aria-labelledby="titulo-boas-vindas"
+                >
+
+                    <div>
+
+                        <p class="welcome-kicker">
+                            MOVETECH
+                        </p>
+
+                        <h2 id="titulo-boas-vindas">
+                            Bem-vindo ao painel de gestão
+                        </h2>
+
+                        <p>
+                            Acompanhe os principais indicadores
+                            do negócio em tempo real.
+                        </p>
+
+                    </div>
+
+                    <div
+                        class="welcome-badge"
+                        role="status"
+                    >
+                        Sistema Online
+                    </div>
+
+                </section>
+
+                <!-- =========================================
+                     INDICADORES
+                ========================================== -->
+
+                <section
+                    class="cards-grid"
+                    aria-label="Indicadores principais"
+                >
+
+                    <!-- CLIENTES -->
+
+                    <article class="card">
+
+                        <div
+                            class="card-icon"
+                            aria-hidden="true"
+                        >
+                            <svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+
+                        <div>
+
+                            <p>
+                                Clientes ativos
+                            </p>
+
+                            <strong id="total-clientes">
+                                --
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+                    <!-- PRODUTOS -->
+
+                    <article class="card">
+
+                        <div
+                            class="card-icon"
+                            aria-hidden="true"
+                        >
+                            <svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m21 8-9-5-9 5 9 5 9-5Z"/><path d="m3 8 9 5 9-5"/><path d="M12 13v9"/><path d="M3 8v9l9 5 9-5V8"/></svg>
+                        </div>
+
+                        <div>
+
+                            <p>
+                                Produtos ativos
+                            </p>
+
+                            <strong id="total-produtos">
+                                --
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+                    <!-- VENDAS -->
+
+                    <article class="card">
+
+                        <div
+                            class="card-icon"
+                            aria-hidden="true"
+                        >
+                            <svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1"/><circle cx="19" cy="20" r="1"/><path d="M3 4h2l2.4 10.4a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 7H6"/><path d="M9 10h8"/></svg>
+                        </div>
+
+                        <div>
+
+                            <p>
+                                Vendas realizadas
+                            </p>
+
+                            <strong id="total-vendas">
+                                --
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+                    <!-- FATURAMENTO -->
+
+                    <article class="card">
+
+                        <div
+                            class="card-icon"
+                            aria-hidden="true"
+                        >
+                            <svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 9h.01M17 15h.01"/><circle cx="12" cy="12" r="2.5"/></svg>
+                        </div>
+
+                        <div>
+
+                            <p>
+                                Faturamento
+                            </p>
+
+                            <strong id="faturamento-total">
+                                R$ --
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+                    <!-- TICKET MÉDIO -->
+
+                    <article class="card">
+
+                        <div
+                            class="card-icon"
+                            aria-hidden="true"
+                        >
+                            <svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 6-7"/><path d="M16 7h4v4"/></svg>
+                        </div>
+
+                        <div>
+
+                            <p>
+                                Ticket médio
+                            </p>
+
+                            <strong id="ticket-medio">
+                                R$ --
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+                    <!-- ESTOQUE BAIXO -->
+
+                    <article class="card alerta">
+
+                        <div
+                            class="card-icon"
+                            aria-hidden="true"
+                        >
+                            <svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.7 2.5 18a2 2 0 0 0 1.8 3h15.4a2 2 0 0 0 1.8-3L13.7 3.7a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+                        </div>
+
+                        <div>
+
+                            <p>
+                                Estoque baixo
+                            </p>
+
+                            <strong id="total-estoque-baixo">
+                                --
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+                </section>
+
+                <!-- =========================================
+                     PAINÉIS
+                ========================================== -->
+
+                <section class="dashboard-grid">
+
+                    <!-- ESTOQUE BAIXO -->
+
+                    <article class="panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <p class="panel-kicker">
+                                    ESTOQUE
+                                </p>
+
+                                <h2>
+                                    Produtos com estoque baixo
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+                        <div
+                            id="lista-estoque-baixo"
+                            class="lista"
+                        >
+
+                            <p class="loading">
+                                Carregando...
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                    <!-- PRODUTOS MAIS VENDIDOS -->
+
+                    <article class="panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <p class="panel-kicker">
+                                    DESEMPENHO
+                                </p>
+
+                                <h2>
+                                    Produtos mais vendidos
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+                        <div
+                            id="lista-produtos-vendidos"
+                            class="lista"
+                        >
+
+                            <p class="loading">
+                                Carregando...
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </section>
+
+                <!-- =========================================
+                     VENDAS RECENTES
+                ========================================== -->
+
+                <section class="panel vendas-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <p class="panel-kicker">
+                                MOVIMENTAÇÕES
+                            </p>
+
+                            <h2>
+                                Vendas recentes
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th scope="col">
+                                        Venda
+                                    </th>
+
+                                    <th scope="col">
+                                        Cliente
+                                    </th>
+
+                                    <th scope="col">
+                                        Valor
+                                    </th>
+
+                                    <th scope="col">
+                                        Data
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="tabela-vendas">
+
+                                <tr>
+
+                                    <td colspan="4">
+                                        Carregando...
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <!-- =========================================
+                     MENSAGENS
+                ========================================== -->
+
+                <div
+                    id="mensagem-dashboard"
+                    class="mensagem-dashboard"
+                    role="alert"
+                    aria-live="polite"
+                    hidden
+                ></div>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <!-- ACESSIBILIDADE -->
+    <script src="acessibilidade.js"></script>
+
+    <!-- VLibras -->
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+
+    <!-- DASHBOARD -->
+    <script src="mt-comum.js"></script>
+    <script src="dashboard.js"></script>
+
+</body>
+
+</html>

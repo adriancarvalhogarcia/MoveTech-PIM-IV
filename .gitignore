@@ -1,0 +1,47 @@
+
+# .NET
+**/bin/
+**/obj/
+.vs/
+*.user
+*.suo
+
+# Flutter
+**/.dart_tool/
+**/build/
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+
+# Android e iOS: arquivos locais
+**/local.properties
+**/Generated.xcconfig
+
+# Segredos
+.env
+.env.*
+!.env.exemplo
+**/appsettings.*.json
+!**/appsettings.Development.json
+**/secrets.json
+*.pem
+*.p12
+*.pfx
+*.key
+
+# Banco e backups
+backups/
+*.bak
+*.dump
+
+# Logs
+logs/
+*.log
+
+# Arquivos gerados
+*.apk
+*.aab
+**/.kotlin/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db

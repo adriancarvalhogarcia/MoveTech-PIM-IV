@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Evidências da API | MoveTech</title>
+<style>
+body{font-family:Segoe UI,Arial,sans-serif;background:#07110b;color:#e8efe9;margin:0;padding:24px}
+h1{color:#32e05f;margin:0 0 4px;font-size:22px} p.sub{color:#9fb0a4;margin:0 0 18px}
+.g{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.c{background:#0d1d13;border:1px solid #1f3a29;border-radius:10px;padding:12px}
+.c h2{font-size:14px;margin:0 0 6px;display:flex;justify-content:space-between;gap:8px}
+.s{font-weight:700;padding:1px 8px;border-radius:20px;font-size:12px}
+.ok{background:#1d5c33;color:#bff5cf}.er{background:#5c1d1d;color:#f5bfbf}
+pre{white-space:pre-wrap;word-break:break-word;font-size:12px;margin:0;color:#cfe3d4;max-height:260px;overflow:hidden}
+</style></head><body>
+<h1>MoveTech — evidências da API REST</h1>
+<p class="sub" id="sub">Chamadas feitas pelo navegador para http://localhost:5071</p>
+<div class="g" id="g"></div>
+<script>
+const A="http://localhost:5071";
+const t=sessionStorage.getItem("smartmoveis_token");
+const testes=[
+ ["GET /health (monitoramento)","/health",false],
+ ["GET /api/relatorios/banco/resumo-vendas (procedure)","/api/relatorios/banco/resumo-vendas?inicio=2026-01-01",true],
+ ["GET /api/relatorios/banco/movimentacoes-estoque (trigger)","/api/relatorios/banco/movimentacoes-estoque?limite=4",true],
+ ["GET /api/relatorios/banco/contas-vencidas (procedure)","/api/relatorios/banco/contas-vencidas",true],
+ ["GET /api/relatorios/banco/estoque-baixo (procedure)","/api/relatorios/banco/estoque-baixo",true],
+ ["GET /api/relatorios/dashboard","/api/relatorios/dashboard",true],
+ ["Sem token: GET /api/clientes → 401 esperado","/api/clientes",false],
+ ["Período inválido → 400 esperado","/api/relatorios/banco/resumo-vendas?inicio=2026-12-01&fim=2026-01-01",true]
+];
+(async()=>{
+ document.getElementById("sub").textContent+=" em "+new Date().toLocaleString("pt-BR");
+ for(const [n,u,auth] of testes){
+  const r=await fetch(A+u,{headers:auth&&t?{Authorization:"Bearer "+t}:{}});
+  let x=await r.text(); try{x=JSON.stringify(JSON.parse(x),null,1)}catch(e){}
+  const esperado=(n.includes("401")&&r.status===401)||(n.includes("400")&&r.status===400)||r.ok;
+  const d=document.createElement("div");d.className="c";
+  d.innerHTML=`<h2><span></span><span class="s ${esperado?"ok":"er"}">${r.status}</span></h2><pre></pre>`;
+  d.querySelector("h2 span").textContent=n; d.querySelector("pre").textContent=x.slice(0,900);
+  document.getElementById("g").appendChild(d);
+ }
+})();
+</script></body></html>

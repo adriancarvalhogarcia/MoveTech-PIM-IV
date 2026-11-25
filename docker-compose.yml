@@ -1,0 +1,62 @@
+# =============================================================
+# MoveTech - ambiente completo em containers
+#   db  : MySQL 8 (dados no volume movetech-mysql)
+#   api : ASP.NET Core 10 (aplica as migrations, triggers e procedures)
+#   web : Nginx servindo o sistema web (pasta frontend)
+#
+# Antes: copie .env.exemplo para .env e troque as senhas.
+# Subir:   docker compose up -d --build
+# Parar:   docker compose down
+# Feche antes o 2_iniciar_api e o 6_iniciar_web (usam as mesmas portas).
+# =============================================================
+services:
+  db:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      TZ: America/Sao_Paulo
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - movetech-mysql:/var/lib/mysql
+      # Na primeira subida cria as tabelas do PIM III e o usuário admin.
+      - ./banco/01_criar_banco.sql:/docker-entrypoint-initdb.d/01_criar_banco.sql:ro
+      - ./banco/02_dados_iniciais.sql:/docker-entrypoint-initdb.d/02_dados_iniciais.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-p${MYSQL_ROOT_PASSWORD}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  api:
+    build: ./backend/SmartMoveis.API
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      ConnectionStrings__DefaultConnection: "server=db;port=3306;database=smartmoveis;user=root;password=${MYSQL_ROOT_PASSWORD}"
+      Jwt__Key: ${JWT_KEY}
+      Cors__Origens__0: http://localhost:5500
+      Cors__Origens__1: http://127.0.0.1:5500
+    ports:
+      - "5071:8080"
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fs http://localhost:8080/health || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  web:
+    image: nginx:1.27-alpine
+    restart: unless-stopped
+    depends_on:
+      - api
+    volumes:
+      - ./frontend:/usr/share/nginx/html:ro
+      - ./infra/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
+      - "5500:80"
+
+volumes:
+  movetech-mysql:

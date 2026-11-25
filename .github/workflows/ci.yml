@@ -1,0 +1,81 @@
+# =============================================================
+# MoveTech - pipeline CI/CD (GitHub Actions)
+#   CI: a cada push/pull request compila a API, roda a análise e
+#       os testes do app Flutter e gera o APK.
+#   CD: na branch main publica a imagem Docker da API no
+#       GitHub Container Registry (ghcr.io).
+# =============================================================
+name: CI/CD MoveTech
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  backend:
+    name: API .NET - build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend/SmartMoveis.API
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - run: dotnet restore
+      - run: dotnet build -c Release --no-restore
+
+  mobile:
+    name: App Flutter - análise, testes e APK
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: mobile
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+      - run: bash configurar.sh
+      - run: flutter analyze --no-fatal-infos
+      - run: flutter test
+      - run: flutter build apk --release --dart-define=API_URL=${{ vars.API_URL || 'http://10.0.2.2:5071/api' }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MoveTech-apk
+          path: mobile/build/app/outputs/flutter-apk/app-release.apk
+
+  docker:
+    name: Imagem Docker da API (CD)
+    needs: [ backend, mobile ]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ghcr.io/${{ github.repository_owner }}/movetech-api
+          tags: |
+            type=raw,value=latest
+            type=sha
+      - uses: docker/build-push-action@v6
+        with:
+          context: backend/SmartMoveis.API
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}

@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Gestão de clientes do MoveTech"
+    >
+
+    <title>Clientes | MoveTech</title>
+
+    <!-- PADRÃO VISUAL -->
+    <link rel="stylesheet" href="movetech.css">
+
+    <!-- ESTILOS DA TELA -->
+    <link rel="stylesheet" href="clientes.css">
+
+    <!-- ACESSIBILIDADE -->
+    <link rel="stylesheet" href="acessibilidade.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         PULAR PARA O CONTEÚDO
+    ====================================================== -->
+
+    <a
+        class="skip-link"
+        href="#conteudo-principal"
+    >
+        Ir para o conteúdo principal
+    </a>
+
+
+    <!-- =====================================================
+         ACESSIBILIDADE GLOBAL
+    ====================================================== -->
+
+    <div
+        class="acessibilidade-barra"
+        role="region"
+        aria-label="Ferramentas de acessibilidade"
+    >
+
+        <span class="acessibilidade-titulo">
+            ♿ Acessibilidade
+        </span>
+
+        <button
+            id="acessibilidade-aumentar"
+            class="acessibilidade-botao"
+            type="button"
+            aria-label="Aumentar tamanho do texto"
+            title="Aumentar texto"
+        >
+            A+
+        </button>
+
+        <button
+            id="acessibilidade-diminuir"
+            class="acessibilidade-botao"
+            type="button"
+            aria-label="Diminuir tamanho do texto"
+            title="Diminuir texto"
+        >
+            A−
+        </button>
+
+        <button
+            id="acessibilidade-contraste"
+            class="acessibilidade-botao"
+            type="button"
+            aria-label="Ativar ou desativar alto contraste"
+            aria-pressed="false"
+            title="Alto contraste"
+        >
+            ◐
+        </button>
+
+        <button
+            id="acessibilidade-restaurar"
+            class="acessibilidade-botao"
+            type="button"
+            aria-label="Restaurar configurações de acessibilidade"
+            title="Restaurar configurações"
+        >
+            ↺
+        </button>
+
+    </div>
+
+
+    <div
+        id="acessibilidade-status"
+        class="sr-only"
+        aria-live="polite"
+        aria-atomic="true"
+    ></div>
+
+
+    <!-- =====================================================
+         SISTEMA
+    ====================================================== -->
+
+    <div class="app-layout">
+
+
+        <!-- =================================================
+             MENU LATERAL
+        ================================================== -->
+
+        <aside
+            class="sidebar"
+            aria-label="Menu principal"
+        >
+
+            <!-- MARCA -->
+
+            <div class="brand">
+
+                <div
+                    class="brand-icon"
+                    aria-hidden="true"
+                >
+                    <svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.8 12 3l9 7.8"/><path d="M5.5 9.5V21h13V9.5"/><path d="M9.5 21v-6h5v6"/></svg>
+                </div>
+
+                <div>
+
+                    <strong>
+                        MOVE<span>TECH</span>
+                    </strong>
+
+                    <small>
+                        Gestão Empresarial
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- NAVEGAÇÃO -->
+
+            <nav
+                class="menu"
+                aria-label="Navegação principal"
+            >
+
+                <a href="dashboard.html">
+                    <span aria-hidden="true"><svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.8 12 3l9 7.8"/><path d="M5.5 9.5V21h13V9.5"/><path d="M9.5 21v-6h5v6"/></svg></span>
+                    Dashboard
+                </a>
+
+                <a
+                    href="clientes.html"
+                    class="active"
+                    aria-current="page"
+                >
+                    <span aria-hidden="true"><svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+                    Clientes
+                </a>
+
+                <a href="produtos.html">
+                    <span aria-hidden="true"><svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m21 8-9-5-9 5 9 5 9-5Z"/><path d="M3 8v9l9 5 9-5V8"/><path d="M12 13v9"/></svg></span>
+                    Produtos
+                </a>
+
+                <a href="vendas.html">
+                    <span aria-hidden="true"><svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1"/><circle cx="19" cy="20" r="1"/><path d="M3 4h2l2.4 10.4a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 7H6"/></svg></span>
+                    Vendas
+                </a>
+
+                <a href="relatorios.html">
+                    <span aria-hidden="true"><svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/></svg></span>
+                    Relatórios
+                </a>
+
+            </nav>
+
+
+            <!-- USUÁRIO -->
+
+            <div class="sidebar-footer">
+
+                <div class="usuario">
+
+                    <div
+                        class="usuario-avatar"
+                        aria-hidden="true"
+                    >
+                        <svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+                    </div>
+
+                    <div>
+
+                        <strong id="usuario-nome">
+                            Usuário
+                        </strong>
+
+                        <small id="usuario-perfil">
+                            Perfil
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    id="botao-sair"
+                    class="botao-sair"
+                    type="button"
+                    aria-label="Sair do sistema MoveTech"
+                >
+                    Sair
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =================================================
+             ÁREA PRINCIPAL
+        ================================================== -->
+
+        <div class="main-area">
+
+
+            <!-- =================================================
+                 TOPO
+            ================================================== -->
+
+            <header class="topbar">
+
+                <div>
+
+                    <p class="page-kicker">
+                        CADASTROS
+                    </p>
+
+                    <h1>
+                        Clientes
+                    </h1>
+
+                </div>
+
+
+                <button
+                    id="botao-novo-cliente"
+                    class="botao-primary"
+                    type="button"
+                >
+                    + Novo cliente
+                </button>
+
+            </header>
+
+
+            <!-- =================================================
+                 CONTEÚDO
+            ================================================== -->
+
+            <main
+                id="conteudo-principal"
+                class="content"
+            >
+
+
+                <!-- =================================================
+                     CABEÇALHO
+                ================================================== -->
+
+                <section
+                    class="clientes-header"
+                    aria-labelledby="titulo-clientes"
+                >
+
+                    <div>
+
+                        <p class="welcome-kicker">
+                            GESTÃO DE CLIENTES
+                        </p>
+
+                        <h2 id="titulo-clientes">
+                            Clientes cadastrados
+                        </h2>
+
+                        <p>
+                            Consulte, cadastre, edite e desative clientes.
+                        </p>
+
+                    </div>
+
+
+                    <!-- BUSCA -->
+
+                    <div class="busca-wrapper">
+
+                        <label for="busca-cliente">
+                            Buscar cliente
+                        </label>
+
+                        <input
+                            type="search"
+                            id="busca-cliente"
+                            placeholder="Nome, CPF ou e-mail"
+                            autocomplete="off"
+                            aria-label="Buscar cliente por nome, CPF ou e-mail"
+                        >
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     TABELA
+                ================================================== -->
+
+                <section
+                    class="painel-clientes"
+                    aria-labelledby="titulo-lista-clientes"
+                >
+
+                    <div class="painel-clientes-header">
+
+                        <div>
+
+                            <p class="panel-kicker">
+                                CADASTROS
+                            </p>
+
+                            <h2 id="titulo-lista-clientes">
+                                Lista de clientes
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="table-wrapper"
+                        tabindex="0"
+                        aria-label="Tabela de clientes. Em telas menores, deslize horizontalmente para visualizar todas as colunas."
+                    >
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th scope="col">
+                                        Nome
+                                    </th>
+
+                                    <th scope="col">
+                                        CPF
+                                    </th>
+
+                                    <th scope="col">
+                                        Telefone
+                                    </th>
+
+                                    <th scope="col">
+                                        E-mail
+                                    </th>
+
+                                    <th scope="col">
+                                        Status
+                                    </th>
+
+                                    <th scope="col">
+                                        Ações
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody id="tabela-clientes">
+
+                                <tr>
+
+                                    <td colspan="6">
+                                        Carregando clientes...
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     MENSAGENS
+                ================================================== -->
+
+                <div
+                    id="mensagem-clientes"
+                    class="mensagem-clientes"
+                    role="alert"
+                    aria-live="polite"
+                    hidden
+                ></div>
+
+            </main>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         MODAL DE CLIENTE
+    ====================================================== -->
+
+    <div
+        id="modal-cliente"
+        class="modal"
+        hidden
+        aria-hidden="true"
+    >
+
+        <div
+            class="modal-card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="titulo-modal"
+        >
+
+            <!-- CABEÇALHO -->
+
+            <div class="modal-header">
+
+                <div>
+
+                    <p class="panel-kicker">
+                        CADASTRO
+                    </p>
+
+                    <h2 id="titulo-modal">
+                        Novo cliente
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="fechar-modal"
+                    class="fechar-modal"
+                    aria-label="Fechar janela de cadastro de cliente"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <!-- =================================================
+                 FORMULÁRIO
+            ================================================== -->
+
+            <form id="form-cliente">
+
+                <input
+                    type="hidden"
+                    id="cliente-id"
+                >
+
+
+                <div class="form-grid">
+
+
+                    <!-- NOME -->
+
+                    <div class="campo campo-full">
+
+                        <label for="cliente-nome">
+                            Nome completo
+                        </label>
+
+                        <input
+                            type="text"
+                            id="cliente-nome"
+                            autocomplete="name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- CPF -->
+
+                    <div class="campo">
+
+                        <label for="cliente-cpf">
+                            CPF
+                        </label>
+
+                        <input
+                            type="text"
+                            id="cliente-cpf"
+                            required
+                            maxlength="14"
+                            inputmode="numeric"
+                            placeholder="000.000.000-00"
+                        >
+
+                    </div>
+
+
+                    <!-- TELEFONE -->
+
+                    <div class="campo">
+
+                        <label for="cliente-telefone">
+                            Telefone
+                        </label>
+
+                        <input
+                            type="text"
+                            id="cliente-telefone"
+                            inputmode="tel"
+                            autocomplete="tel"
+                            placeholder="(17) 99999-9999"
+                        >
+
+                    </div>
+
+
+                    <!-- E-MAIL -->
+
+                    <div class="campo">
+
+                        <label for="cliente-email">
+                            E-mail
+                        </label>
+
+                        <input
+                            type="email"
+                            id="cliente-email"
+                            autocomplete="email"
+                            placeholder="cliente@email.com"
+                        >
+
+                    </div>
+
+
+                    <!-- STATUS -->
+
+                    <div class="campo">
+
+                        <label for="cliente-status">
+                            Status
+                        </label>
+
+                        <select id="cliente-status">
+
+                            <option value="true">
+                                Ativo
+                            </option>
+
+                            <option value="false">
+                                Inativo
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- ENDEREÇO -->
+
+                    <div class="campo campo-full">
+
+                        <label for="cliente-endereco">
+                            Endereço
+                        </label>
+
+                        <input
+                            type="text"
+                            id="cliente-endereco"
+                            autocomplete="street-address"
+                            placeholder="Digite o endereço do cliente"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     MENSAGEM DO FORMULÁRIO
+                ================================================== -->
+
+                <div
+                    id="mensagem-form"
+                    class="mensagem-form"
+                    role="alert"
+                    aria-live="polite"
+                    hidden
+                ></div>
+
+
+                <!-- =================================================
+                     BOTÕES
+                ================================================== -->
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        id="cancelar-cliente"
+                        class="botao-secundario"
+                    >
+                        Cancelar
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        id="salvar-cliente"
+                        class="botao-primary"
+                    >
+                        Salvar cliente
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="acessibilidade.js"></script>
+    <!-- VLibras -->
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+
+    <script src="mt-comum.js"></script>
+    <script src="clientes.js"></script>
+
+</body>
+
+</html>

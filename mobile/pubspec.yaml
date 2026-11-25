@@ -1,0 +1,36 @@
+name: movetech_mobile
+description: >-
+  Aplicativo mobile do MoveTech (PIM IV). Consome a API REST do backend
+  ASP.NET Core para autenticação, consulta e manipulação dos dados.
+publish_to: "none"
+version: 1.3.0+4
+
+environment:
+  sdk: ">=3.5.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Requisições HTTP para a API REST
+  http: ^1.2.2
+
+  # Gerenciamento de estado (padrão Provider / ChangeNotifier)
+  provider: ^6.1.2
+
+  # Cache local e fila de sincronização offline
+  shared_preferences: ^2.3.2
+
+  # Armazenamento criptografado do token JWT
+  flutter_secure_storage: ">=9.2.2 <11.0.0"
+
+  # Escolher o arquivo XML da NF-e (notas de entrada)
+  file_picker: ^10.3.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ">=4.0.0 <7.0.0"
+
+flutter:
+  uses-material-design: true

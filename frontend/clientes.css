@@ -1,0 +1,867 @@
+.clientes-header {
+    position: relative;
+    min-height: 165px;
+    padding: 30px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+
+    overflow: hidden;
+
+    border-radius: 15px;
+    border: 1px solid rgba(66, 209, 79, 0.22);
+
+    background:
+        radial-gradient(
+            circle at 82% 28%,
+            rgba(66, 209, 79, 0.14),
+            transparent 28%
+        ),
+        linear-gradient(
+            135deg,
+            #0b120d 0%,
+            #071008 55%,
+            #061108 100%
+        );
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.18);
+}
+
+.clientes-header::before {
+    content: "";
+
+    position: absolute;
+    right: -140px;
+    top: -140px;
+
+    width: 280px;
+    height: 280px;
+
+    transform: rotate(45deg);
+
+    border: 1px solid rgba(66, 209, 79, 0.16);
+}
+
+.clientes-header::after {
+    content: "";
+
+    position: absolute;
+    right: 40px;
+    bottom: 20px;
+
+    width: 120px;
+    height: 55px;
+
+    opacity: 0.18;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0 18%,
+            rgba(66, 209, 79, 0.8) 18% 20%,
+            transparent 20% 44%,
+            rgba(66, 209, 79, 0.8) 44% 46%,
+            transparent 46% 100%
+        );
+}
+
+.clientes-header > * {
+    position: relative;
+    z-index: 2;
+}
+
+.clientes-header h2 {
+    margin-top: 8px;
+
+    color: var(--branco);
+
+    font-size: 31px;
+    font-weight: 800;
+
+    letter-spacing: -0.8px;
+}
+
+.clientes-header p:last-child {
+    margin-top: 10px;
+
+    color: #aeb8b0;
+
+    line-height: 1.6;
+}
+
+/* =========================
+   BUSCA
+========================= */
+
+.busca-wrapper {
+    width: min(360px, 100%);
+}
+
+.busca-wrapper label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #d2dbd4;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 0.4px;
+}
+
+.busca-wrapper input {
+    width: 100%;
+    min-height: 46px;
+
+    padding: 0 14px;
+
+    border-radius: 9px;
+
+    border:
+        1px solid rgba(140, 170, 145, 0.20);
+
+    background:
+        rgba(3, 7, 4, 0.78);
+
+    color: var(--branco);
+
+    outline: none;
+
+    transition:
+        border-color 0.18s ease,
+        box-shadow 0.18s ease,
+        background 0.18s ease;
+}
+
+.busca-wrapper input::placeholder {
+    color: #6f7a72;
+}
+
+.busca-wrapper input:focus {
+    border-color: var(--verde);
+
+    background:
+        rgba(7, 13, 8, 0.95);
+
+    box-shadow:
+        0 0 0 3px rgba(66, 209, 79, 0.14);
+}
+
+/* =========================
+   PAINEL / TABELA
+========================= */
+
+.painel-clientes {
+    position: relative;
+
+    margin-top: 20px;
+
+    padding: 22px;
+
+    overflow: hidden;
+
+    border-radius: 13px;
+
+    border:
+        1px solid var(--borda);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(15, 22, 16, 0.97),
+            rgba(9, 14, 10, 0.97)
+        );
+
+    box-shadow:
+        0 16px 38px rgba(0, 0, 0, 0.17);
+}
+
+.painel-clientes::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 22px;
+
+    width: 150px;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--verde),
+            transparent
+        );
+
+    opacity: 0.45;
+}
+
+.painel-clientes table {
+    position: relative;
+    z-index: 1;
+}
+
+.painel-clientes tbody tr {
+    transition:
+        background 0.16s ease;
+}
+
+.painel-clientes tbody tr:hover {
+    background:
+        rgba(66, 209, 79, 0.035);
+}
+
+/* =========================
+   BOTÃO PRINCIPAL
+========================= */
+
+.botao-primary {
+    min-height: 44px;
+
+    padding: 0 18px;
+
+    border: 1px solid rgba(66, 209, 79, 0.28);
+    border-radius: 9px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--verde) 0%,
+            #32b942 100%
+        );
+
+    color: #041006;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px rgba(66, 209, 79, 0.14);
+
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        filter 0.18s ease;
+}
+
+.botao-primary:hover {
+    transform: translateY(-1px);
+
+    filter: brightness(1.04);
+
+    box-shadow:
+        0 14px 30px rgba(66, 209, 79, 0.20);
+}
+
+.botao-primary:active {
+    transform: translateY(0);
+}
+
+/* =========================
+   STATUS
+========================= */
+
+.status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 5px 10px;
+
+    border-radius: 999px;
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.status::before {
+    content: "";
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+}
+
+.status.ativo {
+    color: #75ea82;
+
+    background:
+        rgba(66, 209, 79, 0.10);
+
+    border:
+        1px solid rgba(66, 209, 79, 0.28);
+}
+
+.status.ativo::before {
+    background: var(--verde);
+
+    box-shadow:
+        0 0 8px rgba(66, 209, 79, 0.8);
+}
+
+.status.inativo {
+    color: #ffaaaa;
+
+    background:
+        rgba(220, 70, 70, 0.09);
+
+    border:
+        1px solid rgba(220, 70, 70, 0.24);
+}
+
+.status.inativo::before {
+    background: #ff6b6b;
+}
+
+/* =========================
+   AÇÕES
+========================= */
+
+.acoes {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.botao-acao {
+    min-height: 35px;
+
+    padding: 0 11px;
+
+    border-radius: 7px;
+
+    border:
+        1px solid rgba(140, 165, 145, 0.18);
+
+    background:
+        rgba(255, 255, 255, 0.015);
+
+    color: #e4eae5;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.18s ease,
+        background 0.18s ease,
+        color 0.18s ease,
+        transform 0.18s ease;
+}
+
+.botao-acao:hover {
+    transform: translateY(-1px);
+
+    border-color:
+        rgba(66, 209, 79, 0.42);
+
+    background:
+        rgba(66, 209, 79, 0.06);
+}
+
+.botao-acao.perigo:hover {
+    border-color:
+        rgba(255, 107, 107, 0.45);
+
+    background:
+        rgba(255, 107, 107, 0.05);
+
+    color: #ffb6b6;
+}
+
+/* =========================
+   MENSAGENS
+========================= */
+
+.mensagem-clientes,
+.mensagem-form {
+    margin-top: 16px;
+
+    padding: 13px 14px;
+
+    border-radius: 8px;
+
+    line-height: 1.5;
+}
+
+.mensagem-clientes.erro,
+.mensagem-form.erro {
+    background:
+        rgba(152, 30, 30, 0.24);
+
+    border:
+        1px solid rgba(255, 107, 107, 0.32);
+
+    color: #ffdada;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal {
+    position: fixed;
+    inset: 0;
+
+    z-index: 1000;
+
+    display: grid;
+    place-items: center;
+
+    padding: 20px;
+
+    background:
+        rgba(0, 0, 0, 0.78);
+
+    backdrop-filter:
+        blur(8px);
+}
+
+.modal[hidden] {
+    display: none;
+}
+
+.modal-card {
+    position: relative;
+
+    width: min(700px, 100%);
+    max-height: 90vh;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding: 26px;
+
+    border-radius: 15px;
+
+    border:
+        1px solid rgba(66, 209, 79, 0.22);
+
+    background:
+        radial-gradient(
+            circle at 90% 0%,
+            rgba(66, 209, 79, 0.08),
+            transparent 24%
+        ),
+        linear-gradient(
+            145deg,
+            #101712,
+            #090e0a
+        );
+
+    box-shadow:
+        0 28px 100px rgba(0, 0, 0, 0.62),
+        0 0 35px rgba(66, 209, 79, 0.06);
+}
+
+.modal-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 24px;
+
+    width: 180px;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--verde),
+            transparent
+        );
+
+    opacity: 0.5;
+}
+
+/* =========================
+   CABEÇALHO DO MODAL
+========================= */
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    gap: 20px;
+
+    padding-bottom: 18px;
+
+    border-bottom:
+        1px solid var(--borda);
+}
+
+.modal-header h2 {
+    margin-top: 6px;
+
+    color: var(--branco);
+
+    font-size: 24px;
+}
+
+.fechar-modal {
+    width: 40px;
+    height: 40px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 8px;
+
+    border:
+        1px solid transparent;
+
+    background:
+        transparent;
+
+    color: var(--cinza-claro);
+
+    font-size: 27px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.18s ease,
+        border-color 0.18s ease,
+        color 0.18s ease;
+}
+
+.fechar-modal:hover {
+    color: var(--branco);
+
+    background:
+        rgba(66, 209, 79, 0.055);
+
+    border-color:
+        rgba(66, 209, 79, 0.16);
+}
+
+/* =========================
+   FORMULÁRIO
+========================= */
+
+.form-grid {
+    margin-top: 22px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
+
+    gap: 18px;
+}
+
+.campo-full {
+    grid-column: 1 / -1;
+}
+
+.campo label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #d7ded8;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 0.3px;
+}
+
+.campo input,
+.campo select {
+    width: 100%;
+    min-height: 45px;
+
+    padding: 0 12px;
+
+    border-radius: 8px;
+
+    border:
+        1px solid rgba(140, 165, 145, 0.20);
+
+    background:
+        #060a07;
+
+    color: var(--branco);
+
+    outline: none;
+
+    transition:
+        border-color 0.18s ease,
+        box-shadow 0.18s ease,
+        background 0.18s ease;
+}
+
+.campo input::placeholder {
+    color: #677169;
+}
+
+.campo input:focus,
+.campo select:focus {
+    border-color:
+        var(--verde);
+
+    background:
+        #081009;
+
+    box-shadow:
+        0 0 0 3px rgba(66, 209, 79, 0.13);
+}
+
+/* =========================
+   AÇÕES DO MODAL
+========================= */
+
+.modal-actions {
+    margin-top: 26px;
+
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 10px;
+}
+
+/* =========================
+   FOCO ACESSÍVEL
+========================= */
+
+.botao-primary:focus-visible,
+.botao-acao:focus-visible,
+.fechar-modal:focus-visible,
+.busca-wrapper input:focus-visible,
+.campo input:focus-visible,
+.campo select:focus-visible {
+    outline: 3px solid var(--verde-claro);
+    outline-offset: 3px;
+}
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 900px) {
+    .clientes-header {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .busca-wrapper {
+        width: 100%;
+    }
+}
+
+@media (max-width: 750px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .campo-full {
+        grid-column: auto;
+    }
+
+    .modal-card {
+        padding: 22px;
+    }
+
+    .modal-actions {
+        flex-direction: column-reverse;
+    }
+
+    .modal-actions button {
+        width: 100%;
+    }
+}
+
+/* =========================
+   REDUÇÃO DE MOVIMENTO
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .botao-primary,
+    .botao-acao,
+    .fechar-modal,
+    .busca-wrapper input,
+    .campo input,
+    .campo select {
+        transition: none !important;
+    }
+}
+/* ==========================================================
+   AJUSTES FINAIS — CLIENTES / MOVETECH
+   ========================================================== */
+
+/* Botão Novo Cliente */
+.topbar #botao-novo-cliente {
+    min-height: 48px;
+    padding: 0 22px;
+
+    border: 1px solid rgba(66, 209, 79, 0.35);
+    border-radius: 10px;
+
+    background: linear-gradient(
+        135deg,
+        #42d14f,
+        #32b942
+    );
+
+    color: #041006;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 24px rgba(66, 209, 79, 0.10);
+
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        filter 0.18s ease;
+}
+
+.topbar #botao-novo-cliente:hover {
+    transform: translateY(-1px);
+
+    filter: brightness(1.08);
+
+    box-shadow:
+        0 10px 28px rgba(66, 209, 79, 0.18);
+}
+
+.topbar #botao-novo-cliente:active {
+    transform: translateY(0);
+}
+
+
+/* Painel */
+.painel-clientes {
+    padding: 22px;
+}
+
+
+/* Cabeçalho do painel */
+.painel-clientes-header {
+    margin-bottom: 12px;
+}
+
+.painel-clientes-header h2 {
+    margin-top: 6px;
+}
+
+
+/* Tabela */
+.painel-clientes table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.painel-clientes th {
+    padding: 15px 14px;
+
+    white-space: nowrap;
+}
+
+.painel-clientes td {
+    padding: 17px 14px;
+
+    vertical-align: middle;
+}
+
+
+/* Nome */
+.painel-clientes th:first-child,
+.painel-clientes td:first-child {
+    min-width: 230px;
+}
+
+
+/* CPF */
+.painel-clientes th:nth-child(2),
+.painel-clientes td:nth-child(2) {
+    min-width: 125px;
+    white-space: nowrap;
+}
+
+
+/* Telefone */
+.painel-clientes th:nth-child(3),
+.painel-clientes td:nth-child(3) {
+    min-width: 135px;
+    white-space: nowrap;
+}
+
+
+/* E-mail */
+.painel-clientes th:nth-child(4),
+.painel-clientes td:nth-child(4) {
+    min-width: 245px;
+}
+
+
+/* Status */
+.painel-clientes th:nth-child(5),
+.painel-clientes td:nth-child(5) {
+    min-width: 105px;
+    white-space: nowrap;
+}
+
+
+/* Ações */
+.painel-clientes th:last-child,
+.painel-clientes td:last-child {
+    min-width: 150px;
+}
+
+
+/* Botões Editar / Desativar */
+.painel-clientes td:last-child {
+    white-space: nowrap;
+}
+
+.painel-clientes td:last-child button {
+    margin: 3px;
+
+    min-height: 36px;
+    padding: 0 12px;
+
+    border-radius: 7px;
+
+    border: 1px solid rgba(140, 165, 145, 0.18);
+
+    background: rgba(255, 255, 255, 0.015);
+
+    color: #e4eae5;
+
+    cursor: pointer;
+}
+
+.painel-clientes td:last-child button:hover {
+    border-color: rgba(66, 209, 79, 0.42);
+
+    background: rgba(66, 209, 79, 0.06);
+}
+
+
+/* Responsividade da tabela */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+
+/* Acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+    .topbar #botao-novo-cliente {
+        transition: none !important;
+    }
+}

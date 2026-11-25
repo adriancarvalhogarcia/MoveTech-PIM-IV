@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- NF-e FICTICIA para teste da importacao de notas de entrada do MoveTech.
+     Emitente, chave e valores sao inventados (nao e um documento fiscal). -->
+<nfeProc xmlns="http://www.portalfiscal.inf.br/nfe" versao="4.00">
+  <NFe>
+    <infNFe Id="NFe35261012345678000195550010000012341000012345" versao="4.00">
+      <ide>
+        <cUF>35</cUF><natOp>Compra para comercializacao</natOp><mod>55</mod>
+        <serie>1</serie><nNF>1234</nNF>
+        <dhEmi>2026-10-15T09:30:00-03:00</dhEmi><tpNF>1</tpNF>
+      </ide>
+      <emit>
+        <CNPJ>12345678000195</CNPJ>
+        <xNome>FABRICA DE MOVEIS EXEMPLO LTDA</xNome>
+        <xFant>Moveis Exemplo</xFant>
+      </emit>
+      <dest><CNPJ>98765432000198</CNPJ><xNome>MOVETECH COMERCIO DE MOVEIS</xNome></dest>
+      <det nItem="1">
+        <prod>
+          <cProd>SOF-003</cProd><cEAN>SEM GTIN</cEAN>
+          <xProd>Sofa 3 lugares</xProd><NCM>94016100</NCM><CFOP>5102</CFOP>
+          <uCom>UN</uCom><qCom>4.0000</qCom><vUnCom>1200.0000</vUnCom><vProd>4800.00</vProd>
+          <vFrete>120.00</vFrete>
+        </prod>
+        <imposto><IPI><IPITrib><CST>50</CST><vIPI>240.00</vIPI></IPITrib></IPI></imposto>
+      </det>
+      <det nItem="2">
+        <prod>
+          <cProd>POL-LIN-01</cProd><cEAN>7891234567895</cEAN>
+          <xProd>Poltrona Decorativa Linho Bege</xProd><NCM>94016100</NCM><CFOP>5102</CFOP>
+          <uCom>UN</uCom><qCom>6.0000</qCom><vUnCom>450.0000</vUnCom><vProd>2700.00</vProd>
+          <vFrete>60.00</vFrete><vDesc>30.00</vDesc>
+        </prod>
+        <imposto><IPI><IPITrib><CST>50</CST><vIPI>135.00</vIPI></IPITrib></IPI></imposto>
+      </det>
+      <det nItem="3">
+        <prod>
+          <cProd>RACK-180</cProd><cEAN>7899876543210</cEAN>
+          <xProd>Rack para TV 1,80m Freijo</xProd><NCM>94036000</NCM><CFOP>5102</CFOP>
+          <uCom>UN</uCom><qCom>3.0000</qCom><vUnCom>380.0000</vUnCom><vProd>1140.00</vProd>
+          <vFrete>30.00</vFrete>
+        </prod>
+        <imposto><IPI><IPITrib><CST>50</CST><vIPI>57.00</vIPI></IPITrib></IPI></imposto>
+      </det>
+      <total>
+        <ICMSTot>
+          <vProd>8640.00</vProd><vFrete>210.00</vFrete><vDesc>30.00</vDesc>
+          <vIPI>432.00</vIPI><vNF>9252.00</vNF>
+        </ICMSTot>
+      </total>
+      <cobr>
+        <fat><nFat>1234</nFat><vOrig>9252.00</vOrig><vLiq>9252.00</vLiq></fat>
+        <dup><nDup>001</nDup><dVenc>2026-11-14</dVenc><vDup>4626.00</vDup></dup>
+        <dup><nDup>002</nDup><dVenc>2026-12-14</dVenc><vDup>4626.00</vDup></dup>
+      </cobr>
+    </infNFe>
+  </NFe>
+  <protNFe versao="4.00"><infProt><chNFe>35261012345678000195550010000012341000012345</chNFe></infProt></protNFe>
+</nfeProc>

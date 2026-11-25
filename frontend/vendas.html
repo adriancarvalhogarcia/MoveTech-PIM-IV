@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Gestão de vendas do sistema MoveTech"
+    >
+
+    <title>Vendas | MoveTech</title>
+
+    <!-- PADRÃO VISUAL GLOBAL MOVETECH -->
+    <link rel="stylesheet" href="movetech.css">
+
+    <!-- ESTILOS ESPECÍFICOS DE VENDAS -->
+    <link rel="stylesheet" href="vendas.css">
+
+    <!-- ACESSIBILIDADE GLOBAL -->
+    <link rel="stylesheet" href="modulos.css">
+
+    <!-- ACESSIBILIDADE -->
+    <link rel="stylesheet" href="acessibilidade.css">
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+         PULAR PARA O CONTEÚDO
+    ====================================================== -->
+
+    <a
+        class="skip-link"
+        href="#conteudo-principal"
+    >
+        Ir para o conteúdo principal
+    </a>
+
+
+    <!-- =====================================================
+         BARRA DE ACESSIBILIDADE
+    ====================================================== -->
+
+    <div
+        class="acessibilidade-barra"
+        role="region"
+        aria-label="Ferramentas de acessibilidade"
+    >
+
+        <span class="acessibilidade-titulo">
+            ♿ Acessibilidade
+        </span>
+
+
+        <button
+            id="acessibilidade-aumentar"
+            class="acessibilidade-botao"
+            type="button"
+            aria-label="Aumentar tamanho do texto"
+            title="Aumentar texto"
+        >
+            A+
+        </button>
+
+
+        <button
+            id="acessibilidade-diminuir"
+            class="acessibilidade-botao"
+            type="button"
+            aria-label="Diminuir tamanho do texto"
+            title="Diminuir texto"
+        >
+            A−
+        </button>
+
+
+        <button
+            id="acessibilidade-contraste"
+            class="acessibilidade-botao"
+            type="button"
+            aria-label="Ativar ou desativar alto contraste"
+            aria-pressed="false"
+            title="Alto contraste"
+        >
+            ◐
+        </button>
+
+
+        <button
+            id="acessibilidade-restaurar"
+            class="acessibilidade-botao"
+            type="button"
+            aria-label="Restaurar configurações de acessibilidade"
+            title="Restaurar configurações"
+        >
+            ↺
+        </button>
+
+    </div>
+
+
+    <!-- MENSAGENS PARA LEITOR DE TELA -->
+
+    <div
+        id="acessibilidade-status"
+        class="sr-only"
+        aria-live="polite"
+        aria-atomic="true"
+    ></div>
+
+
+    <!-- =====================================================
+         SISTEMA
+    ====================================================== -->
+
+    <div class="app-layout">
+
+
+        <!-- =================================================
+             MENU LATERAL
+        ================================================== -->
+
+        <aside
+            class="sidebar"
+            aria-label="Menu principal"
+        >
+
+
+            <!-- MARCA -->
+
+            <div class="brand">
+
+                <div
+                    class="brand-icon"
+                    aria-hidden="true"
+                >
+                    <svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.8 12 3l9 7.8"/><path d="M5.5 9.5V21h13V9.5"/><path d="M9.5 21v-6h5v6"/></svg>
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        MOVE<span>TECH</span>
+                    </strong>
+
+                    <small>
+                        Gestão Empresarial
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 NAVEGAÇÃO
+            ================================================== -->
+
+            <nav
+                class="menu"
+                aria-label="Navegação principal"
+            >
+
+                <a href="dashboard.html">
+
+                    <span aria-hidden="true">
+                        <svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.8 12 3l9 7.8"/><path d="M5.5 9.5V21h13V9.5"/><path d="M9.5 21v-6h5v6"/></svg>
+                    </span>
+
+                    Dashboard
+
+                </a>
+
+
+                <a href="clientes.html">
+
+                    <span aria-hidden="true">
+                        <svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </span>
+
+                    Clientes
+
+                </a>
+
+
+                <a href="produtos.html">
+
+                    <span aria-hidden="true">
+                        <svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m21 8-9-5-9 5 9 5 9-5Z"/><path d="M3 8v9l9 5 9-5V8"/><path d="M12 13v9"/></svg>
+                    </span>
+
+                    Produtos
+
+                </a>
+
+
+                <a
+                    href="vendas.html"
+                    class="active"
+                    aria-current="page"
+                >
+
+                    <span aria-hidden="true">
+                        <svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1"/><circle cx="19" cy="20" r="1"/><path d="M3 4h2l2.4 10.4a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 7H6"/></svg>
+                    </span>
+
+                    Vendas
+
+                </a>
+
+
+                <a href="relatorios.html">
+
+                    <span aria-hidden="true">
+                        <svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/></svg>
+                    </span>
+
+                    Relatórios
+
+                </a>
+
+            </nav>
+
+
+            <!-- =================================================
+                 USUÁRIO
+            ================================================== -->
+
+            <div class="sidebar-footer">
+
+                <div class="usuario">
+
+                    <div
+                        class="usuario-avatar"
+                        aria-hidden="true"
+                    >
+                        <svg class="mt-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+                    </div>
+
+
+                    <div>
+
+                        <!--
+                            ID preservado porque vendas.js utiliza.
+                        -->
+
+                        <strong id="nomeUsuario">
+                            Usuário
+                        </strong>
+
+                        <small>
+                            Administrador
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <!--
+                    ID preservado porque vendas.js utiliza.
+                -->
+
+                <button
+                    type="button"
+                    id="btnLogout"
+                    class="botao-sair"
+                    aria-label="Sair do sistema MoveTech"
+                >
+                    Sair
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =================================================
+             ÁREA PRINCIPAL
+        ================================================== -->
+
+        <div class="main-area">
+
+
+            <!-- =================================================
+                 CABEÇALHO
+            ================================================== -->
+
+            <header class="topbar">
+
+                <div>
+
+                    <p class="page-kicker">
+                        COMERCIAL
+                    </p>
+
+                    <h1>
+                        Vendas
+                    </h1>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="btnNovaVenda"
+                    class="botao-primary"
+                >
+                    + Nova venda
+                </button>
+
+            </header>
+
+
+            <!-- =================================================
+                 CONTEÚDO
+            ================================================== -->
+
+            <main
+                id="conteudo-principal"
+                class="content"
+            >
+
+
+                <!-- =============================================
+                     APRESENTAÇÃO
+                ============================================== -->
+
+                <section
+                    class="sales-hero"
+                    aria-labelledby="titulo-vendas"
+                >
+
+                    <div
+                        class="hero-decoration"
+                        aria-hidden="true"
+                    ></div>
+
+
+                    <div class="hero-content">
+
+                        <p class="welcome-kicker">
+                            GESTÃO DE VENDAS
+                        </p>
+
+                        <h2 id="titulo-vendas">
+                            Vendas realizadas
+                        </h2>
+
+                        <p>
+                            Registre novas vendas, acompanhe os
+                            pedidos realizados e mantenha o estoque
+                            atualizado automaticamente.
+                        </p>
+
+                    </div>
+
+
+                    <div class="hero-status">
+
+                        <span
+                            class="status-dot"
+                            aria-hidden="true"
+                        ></span>
+
+                        Sistema Online
+
+                    </div>
+
+                </section>
+
+
+                <!-- =============================================
+                     INDICADORES
+                ============================================== -->
+
+                <section
+                    class="sales-summary"
+                    aria-label="Resumo das vendas"
+                >
+
+
+                    <!-- VENDAS REGISTRADAS -->
+
+                    <article class="summary-card">
+
+                        <span class="summary-label">
+                            Vendas registradas
+                        </span>
+
+                        <strong id="totalVendas">
+                            0
+                        </strong>
+
+                    </article>
+
+
+                    <!-- FATURAMENTO -->
+
+                    <article class="summary-card">
+
+                        <span class="summary-label">
+                            Faturamento
+                        </span>
+
+                        <strong id="totalFaturamento">
+                            R$ 0,00
+                        </strong>
+
+                    </article>
+
+
+                    <!-- TICKET MÉDIO -->
+
+                    <article class="summary-card">
+
+                        <span class="summary-label">
+                            Ticket médio
+                        </span>
+
+                        <strong id="ticketMedio">
+                            R$ 0,00
+                        </strong>
+
+                    </article>
+
+                </section>
+
+
+                <!-- =============================================
+                     HISTÓRICO
+                ============================================== -->
+
+                <section
+                    class="sales-panel"
+                    aria-labelledby="titulo-historico-vendas"
+                >
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <p class="welcome-kicker">
+                                HISTÓRICO
+                            </p>
+
+                            <h2 id="titulo-historico-vendas">
+                                Últimas vendas
+                            </h2>
+
+                        </div>
+
+
+                        <!-- BUSCA -->
+
+                        <div class="search-wrapper">
+
+                            <label for="buscarVenda">
+                                Buscar venda
+                            </label>
+
+                            <input
+                                type="search"
+                                id="buscarVenda"
+                                placeholder="Cliente ou número da venda"
+                                autocomplete="off"
+                                aria-label="Buscar venda por cliente ou número"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- MENSAGENS -->
+
+                    <div
+                        id="mensagemVendas"
+                        class="feedback-message"
+                        role="status"
+                        aria-live="polite"
+                    ></div>
+
+
+                    <!-- =========================================
+                         TABELA
+                    ========================================== -->
+
+                    <div
+                        class="table-wrapper"
+                        tabindex="0"
+                        aria-label="Tabela de vendas. Em telas menores, deslize horizontalmente para visualizar todas as colunas."
+                    >
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th scope="col">
+                                        Venda
+                                    </th>
+
+                                    <th scope="col">
+                                        Cliente
+                                    </th>
+
+                                    <th scope="col">
+                                        Data
+                                    </th>
+
+                                    <th scope="col">
+                                        Itens
+                                    </th>
+
+                                    <th scope="col">
+                                        Total
+                                    </th>
+
+                                    <th scope="col">
+                                        Ações
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody id="tabelaVendas">
+
+                                <tr>
+
+                                    <td
+                                        colspan="6"
+                                        class="empty-state"
+                                    >
+                                        Carregando vendas...
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+            </main>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         MODAL — NOVA VENDA
+    ====================================================== -->
+
+    <div
+        class="modal-overlay"
+        id="modalVenda"
+        hidden
+        aria-hidden="true"
+    >
+
+        <div
+            class="modal-card modal-venda"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="tituloModalVenda"
+        >
+
+
+            <!-- =================================================
+                 CABEÇALHO
+            ================================================== -->
+
+            <div class="modal-header">
+
+                <div>
+
+                    <p class="welcome-kicker">
+                        REGISTRO DE VENDA
+                    </p>
+
+                    <h2 id="tituloModalVenda">
+                        Nova venda
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="modal-close"
+                    id="btnFecharModal"
+                    aria-label="Fechar janela de nova venda"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <!-- =================================================
+                 FORMULÁRIO
+            ================================================== -->
+
+            <form id="formVenda">
+
+
+                <!-- CLIENTE -->
+
+                <div class="form-group">
+
+                    <label for="clienteVenda">
+                        Cliente
+                    </label>
+
+                    <select
+                        id="clienteVenda"
+                        required
+                    >
+
+                        <option value="">
+                            Selecione um cliente
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- =============================================
+                     PRODUTOS
+                ============================================== -->
+
+                <section
+                    class="sale-items-section"
+                    aria-labelledby="titulo-itens-venda"
+                >
+
+                    <div class="sale-items-header">
+
+                        <div>
+
+                            <p class="welcome-kicker">
+                                PRODUTOS
+                            </p>
+
+                            <h3 id="titulo-itens-venda">
+                                Itens da venda
+                            </h3>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            id="btnAdicionarItem"
+                            class="botao-secundario"
+                        >
+                            + Adicionar produto
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        id="listaItensVenda"
+                        class="sale-items-list"
+                    ></div>
+
+                </section>
+
+
+                <!-- =============================================
+                     TOTAL
+                ============================================== -->
+
+                <!-- =============================================
+                     PAGAMENTO (gera as contas a receber)
+                ============================================== -->
+
+                <div class="mod-form-grid" style="margin-top:18px">
+                    <div class="form-group mod-campo">
+                        <label for="formaPagamentoVenda">Forma de pagamento</label>
+                        <select id="formaPagamentoVenda" required>
+                            <option value="">Selecione</option>
+                            <option value="Dinheiro">Dinheiro</option>
+                            <option value="Pix">Pix</option>
+                            <option value="CartaoDebito">Cartão de débito</option>
+                            <option value="CartaoCredito">Cartão de crédito</option>
+                            <option value="Boleto">Boleto</option>
+                            <option value="Crediario">Crediário (carnê da loja)</option>
+                        </select>
+                    </div>
+                    <div class="form-group mod-campo">
+                        <label for="parcelasVenda">Parcelas</label>
+                        <select id="parcelasVenda" disabled>
+                            <option value="1">1x (à vista)</option>
+                        </select>
+                        <p class="mod-ajuda" id="ajudaPagamento">Dinheiro, Pix e débito são recebidos na hora.</p>
+                    </div>
+                </div>
+
+                <div class="sale-total-box">
+
+                    <span>
+                        Total da venda
+                    </span>
+
+                    <strong id="totalVendaModal">
+                        R$ 0,00
+                    </strong>
+
+                </div>
+
+
+                <!-- =============================================
+                     MENSAGEM
+                ============================================== -->
+
+                <div
+                    id="mensagemModalVenda"
+                    class="feedback-message"
+                    role="status"
+                    aria-live="polite"
+                ></div>
+
+
+                <!-- =============================================
+                     AÇÕES
+                ============================================== -->
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        id="btnCancelarVenda"
+                        class="botao-secundario"
+                    >
+                        Cancelar
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        id="btnSalvarVenda"
+                        class="botao-primary"
+                    >
+                        Finalizar venda
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         TEMPLATE DOS PRODUTOS DA VENDA
+    ====================================================== -->
+
+    <template id="templateItemVenda">
+
+        <div class="sale-item">
+
+
+            <!-- PRODUTO -->
+
+            <div class="form-group product-field">
+
+                <label>
+                    Produto
+                </label>
+
+                <select
+                    class="produto-item"
+                    required
+                    aria-label="Selecionar produto"
+                >
+
+                    <option value="">
+                        Selecione um produto
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- QUANTIDADE -->
+
+            <div class="form-group quantity-field">
+
+                <label>
+                    Quantidade
+                </label>
+
+                <input
+                    type="number"
+                    class="quantidade-item"
+                    min="1"
+                    value="1"
+                    required
+                    aria-label="Quantidade do produto"
+                >
+
+            </div>
+
+
+            <!-- ESTOQUE / SUBTOTAL -->
+
+            <div class="item-info">
+
+                <span class="item-stock">
+                    Estoque: -
+                </span>
+
+                <strong class="item-subtotal">
+                    R$ 0,00
+                </strong>
+
+            </div>
+
+
+            <!-- REMOVER -->
+
+            <button
+                type="button"
+                class="remove-item-button"
+                aria-label="Remover produto da venda"
+            >
+                ×
+            </button>
+
+        </div>
+
+    </template>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <!-- ACESSIBILIDADE GLOBAL -->
+    <!-- =====================================================
+         MODAL — DETALHES E DEVOLUÇÃO DA VENDA
+    ====================================================== -->
+
+    <div id="modal-detalhe-venda" class="modal-overlay mt-modal" hidden aria-hidden="true">
+        <div class="modal-card mod-modal-largo" role="dialog" aria-modal="true" aria-labelledby="titulo-detalhe-venda">
+            <div class="modal-header">
+                <div>
+                    <p class="welcome-kicker">VENDA</p>
+                    <h2 id="titulo-detalhe-venda">Detalhes da venda</h2>
+                </div>
+                <button type="button" class="modal-close" data-fechar aria-label="Fechar detalhes da venda">×</button>
+            </div>
+            <div id="conteudo-detalhe-venda"></div>
+
+            <form id="form-devolucao" hidden novalidate>
+                <h3>Devolução</h3>
+                <p class="texto-fraco">Informe quanto de cada item volta para a loja. O estoque é devolvido e as
+                   parcelas em aberto são abatidas; se o cliente já pagou, é gerado um reembolso.</p>
+                <div class="table-wrapper mod-tabela-edit" tabindex="0">
+                    <table>
+                        <thead>
+                            <tr><th>Produto</th><th>Vendido</th><th>Já devolvido</th><th>Devolver agora</th><th>Valor</th></tr>
+                        </thead>
+                        <tbody id="itens-devolucao"></tbody>
+                    </table>
+                </div>
+                <div class="mod-form-grid" style="margin-top:14px">
+                    <div class="mod-campo mod-campo-full">
+                        <label for="motivo-devolucao">Motivo da devolução</label>
+                        <input type="text" id="motivo-devolucao" maxlength="250" required placeholder="Ex.: produto com avaria, cliente desistiu">
+                    </div>
+                    <div class="mod-campo">
+                        <label for="reembolso-devolucao">Se houver reembolso ao cliente</label>
+                        <select id="reembolso-devolucao">
+                            <option value="">Deixar em aberto no Financeiro</option>
+                            <option value="Dinheiro">Já devolvi em dinheiro</option>
+                            <option value="Pix">Já devolvi por Pix</option>
+                            <option value="CartaoCredito">Estornado no cartão de crédito</option>
+                            <option value="CartaoDebito">Estornado no cartão de débito</option>
+                            <option value="Transferencia">Já devolvi por transferência</option>
+                        </select>
+                    </div>
+                    <div class="mod-campo">
+                        <span class="texto-fraco">Total a devolver</span>
+                        <strong id="total-devolucao" style="display:block;font-size:22px;margin-top:6px">R$ 0,00</strong>
+                    </div>
+                </div>
+                <div id="mensagem-devolucao" class="feedback-message" role="alert" aria-live="polite" hidden></div>
+                <div class="modal-actions">
+                    <button type="button" class="botao-secundario" id="cancelar-devolucao">Voltar</button>
+                    <button type="submit" class="botao-primary" id="confirmar-devolucao">Confirmar devolução</button>
+                </div>
+            </form>
+
+            <div class="modal-actions" id="acoes-detalhe-venda">
+                <button type="button" class="botao-secundario" data-fechar>Fechar</button>
+                <button type="button" class="botao-primary" id="iniciar-devolucao">Registrar devolução</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="acessibilidade.js"></script>
+
+    <!-- FUNCIONALIDADES DE VENDAS -->
+    <!-- VLibras -->
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+
+    <script src="mt-comum.js"></script>
+    <script src="vendas.js"></script>
+    <script src="vendas-detalhe.js"></script>
+
+</body>
+
+</html>
